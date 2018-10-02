@@ -13,17 +13,19 @@ def get_parameters(api_key):
 
 
 def retrieve(base_url, api_key):
+    print("\nrequesting")
     response = requests.get(base_url, get_parameters(api_key))
+    print("status code: {}".format(response.status_code))
     if response.status_code is 200:
         with open("the_guardian_response.json", 'w') as file:
             file.writelines(json.dumps(response.json(), indent=4))
     else:
         with open("the_guardian_response_{}.json".format(response.status_code), 'w') as file:
-            file.writelines(json.dumps(response.json(), indent=4))
+            file.writelines(json.dumps(response.txt))
 
 
 if __name__ == "__main__":
     api_key = "ede93040-cd7a-4350-a2f7-6b0426126659"
     base_url = "https://content.guardianapis.com/search"
     retrieve(base_url, api_key)
-    input("Press anything to exit. ")
+    # input("Press key to exit. ")
