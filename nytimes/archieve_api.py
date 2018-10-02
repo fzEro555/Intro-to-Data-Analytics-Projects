@@ -4,8 +4,8 @@ import time
 
 
 def retrieve(base_url, api_key):
-    for year in range(2018, 2019):
-        for month in range(8, 13):
+    for year in range(2017, 2018):
+        for month in range(5, 13):
             url = "{}/{}/{}.json?api-key={}".format(base_url, year, month, api_key)
             print("\nrequesting for {}/{}".format(month, year))
             response = requests.get(url)
