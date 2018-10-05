@@ -22,7 +22,7 @@ def write_response(response, page: str, hurricane_name: str):
     else:
         with open("the_guardian_response_{}_{}_{}.json".format(
                 hurricane_name, page, response.status_code), 'w') as file:
-            file.writelines(json.dumps(response.txt))
+            file.writelines(json.dumps(response.text))
 
 
 def retrieve(base_url, api_key, hurricane_name, from_date, to_date):
@@ -30,7 +30,7 @@ def retrieve(base_url, api_key, hurricane_name, from_date, to_date):
     response = requests.get(base_url, get_parameters(api_key, from_date, to_date, "1"))
     write_response(response, "1", hurricane_name)
     n_pages = response.json()["response"]["pages"]
-    for n in range(2, n_pages+1):
+    for n in range(761, n_pages+1):
         print("\nrequesting page {}/{}".format(n, int(n_pages)))
         response = requests.get(base_url, get_parameters(api_key, from_date, to_date, str(n)))
         write_response(response, str(n), hurricane_name)
