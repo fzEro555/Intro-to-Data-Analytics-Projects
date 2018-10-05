@@ -43,10 +43,12 @@ if __name__ == "__main__":
     # list all json files in the directory
     json_files = glob.glob("./*.json")
     for jf in json_files:
+        print("\nCleaning {}".format(jf))
         with open(jf, 'r') as file:
             json_file = json.loads(file.read())
             ll.extend(extract_from(json_file, r_hurricane, r_irma, r_harvey, r_maria))
+    print("\nSaving as csv. ")
     with open("nytimes_cleaned.csv", 'w') as file:
         writer = csv.writer(file, delimiter=',')
         writer.writerows(ll)
-    input("press any key to exit")
+    # input("press any key to exit")

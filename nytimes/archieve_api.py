@@ -30,7 +30,7 @@ def test_for_error(base_url, api_key):
 if __name__ == "__main__":
     base_url = "https://api.nytimes.com/svc/archive/v1"
     api_key = "e7bbf035e3694a01894a2b523c4c589e"
-    retrieve(base_url, api_key, 2017, 5, 12)
-    retrieve(base_url, api_key, 2018, 1, 6)
+    retrieve(base_url, api_key, 2017, 6, 12)
+    # retrieve(base_url, api_key, 2018, 1, 6)
     # test_for_error(base_url, api_key)
     # input("Press anything to exit. ")
