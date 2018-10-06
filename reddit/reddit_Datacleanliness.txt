@@ -9,4 +9,4 @@ Comment_Time,0.0
 
 
 Number of rows that have a comment content that has been deleted or removed
-774
+0.03166939443535188
