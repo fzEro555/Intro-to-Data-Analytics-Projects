@@ -97,6 +97,7 @@ class Cleaning:
         myDataframe = myDataframe[~myDataframe["Action Obligation"].isin(valuelist)]
         after = len(myDataframe.index)
         print("\n the number of values dropped = ", before - after, "\n")
+        print("Number of values still present = ", after,"\n")
         return myDataframe[:-1]
         
         
