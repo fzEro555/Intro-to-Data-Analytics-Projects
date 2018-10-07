@@ -45,10 +45,11 @@ if __name__ == "__main__":
     # a list of id, date, n_hurricane, n_irma, n_harvey, n_maria for each news from nytimes
     ll = []
     # list all json files in the directory
-    json_files = os.listdir("./resp_archive")
+    path = "./response_archive/"
+    json_files = os.listdir(path)
     for jf in json_files:
-        print("\nCleaning {}".format(jf))
-        with open("./resp_archive/{}".format(jf), 'r') as file:
+        # print("\nCleaning {}".format(jf))
+        with open(path + jf, 'r') as file:
             json_file = json.loads(file.read())
             ll.extend(extract_from(json_file, r_hurricane, r_irma, r_harvey, r_maria))
     print("\nSaving as csv. ")
