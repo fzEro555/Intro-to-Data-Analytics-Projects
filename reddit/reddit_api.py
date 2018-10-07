@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Created on Sun Sep 30 22:24:09 2018
@@ -9,13 +9,7 @@ import praw
 import time
 import csv
 
-'''
-headers = {"Authorization": "bearer 13426216-4U1ckno9J5AiK72VRbpEeBaMSKk", "User-Agent": "Dataquest/1.0"}
-params = {"t": "day"}
-response = requests.get("https://oauth.reddit.com/r/python/top", headers=headers, params=params)
 
-print(response.json())
-'''
 #get authorization
 def authorize():
     reddit = praw.Reddit(client_id='nGzUlTCl1QHuDg',
@@ -28,7 +22,7 @@ def extractdata():
     csvfile=open("reddit_api_data.csv", 'w')
     writer = csv.writer(csvfile)
     #the first line of the csv file.
-    writer.writerow(["Hurricane_Name", "Submission_Title", "Submission_Content", "Submission_Time", 
+    writer.writerow(["Hurricane_Name", "Submission_Title", "Submission_Content", "Submission_Time",
                  "Total_Comment_Number", "Comment_Content", "Comment_Time"])
     hurricaneList = {"hurricane irma", "hurricane harvey", "hurricane maria"}
     for hurricane in hurricaneList:
@@ -38,7 +32,7 @@ def extractdata():
             ltime_submission = time.localtime(submission.created_utc)
             timeStr_submission=time.strftime("%Y-%m-%d %H:%M:%S", ltime_submission)
             submission.comments.replace_more(limit=None)
-            # Get the top_level_comments 
+            # Get the top_level_comments
             for top_level_comment in submission.comments:
                 ltime_top_comment = time.localtime(top_level_comment.created_utc)
                 timeStr_top_comment=time.strftime("%Y-%m-%d %H:%M:%S", ltime_top_comment)
@@ -53,7 +47,7 @@ def extractdata():
                 writer.writerow(top_list)
                 #print(top_list)
                 #print("\n***************")
-                #Get the second_level_comments 
+                #Get the second_level_comments
                 for second_level_comment in top_level_comment.replies:
                     ltime_second_comment = time.localtime(second_level_comment.created_utc)
                     timeStr_second_comment=time.strftime("%Y-%m-%d %H:%M:%S", ltime_second_comment)
@@ -69,24 +63,6 @@ def extractdata():
                     #print(send_list)
                     #print("\n***************")
     csvfile.close()
-'''
-   #Get all of the comments
-   for comment in submission.comments.list():
-        #print(comment.body)
-        #print("---------------")
-        ltime_comment = time.localtime(comment.created_utc)
-        timeStr_comment=time.strftime("%Y-%m-%d %H:%M:%S", ltime_comment)
-        list = []
-        list.append(submission.title)
-        list.append(submission.selftext)
-        list.append(timeStr_submission)
-        list.append(submission.num_comments)
-        list.append(comment.body)
-        list.append(timeStr_comment)
-        writer.writerow(list)
-        print(list)
-        print("\n***************")
-'''
 
 if __name__ == "__main__":
     extractdata()
