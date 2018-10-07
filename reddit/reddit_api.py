@@ -17,6 +17,7 @@ def authorize():
                      redirect_uri='http://localhost:8080',
                      user_agent='testscript by /u/fzEro5')
     return reddit
+
 def extractdata():
     reddit = authorize()
     csvfile=open("reddit_api_data.csv", 'w')
