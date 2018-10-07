@@ -1,3 +1,5 @@
+import os
+import shutil
 import requests
 import json
 
@@ -9,10 +11,10 @@ def retrieve(base_url, api_key, year: int, from_month: int, to_month):
         response = requests.get(url)
         print("status code: {}".format(response.status_code))
         if response.status_code is 200:
-            with open("{}_{}.json".format(year, month), 'w') as file:
+            with open("./response_archive/{}_{}.json".format(year, month), 'w') as file:
                 file.write(json.dumps(response.json(), indent=4))
         else:
-            with open("{}_{}_{}.txt".format(year, month, response.status_code), 'w') as file:
+            with open("./response_archive/{}_{}_{}.txt".format(year, month, response.status_code), 'w') as file:
                 file.writelines(response.text)
 
 
@@ -30,6 +32,11 @@ def test_for_error(base_url, api_key):
 if __name__ == "__main__":
     base_url = "https://api.nytimes.com/svc/archive/v1"
     api_key = "e7bbf035e3694a01894a2b523c4c589e"
+    path = "./response_archive"
+    if os.path.exists(path):
+        shutil.rmtree(path)
+    else:
+        os.mkdir(path)
     retrieve(base_url, api_key, 2017, 6, 12)
     # retrieve(base_url, api_key, 2018, 1, 6)
     # test_for_error(base_url, api_key)
