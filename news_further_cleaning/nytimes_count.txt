@@ -1,0 +1,12 @@
+
+number of instances in cleaned file: 33147
+number of not-all-zero instances: 919
+number of appearance of hurricane: 454
+number of appearance of irma: 281
+number of appearance of harvey: 374
+number of appearance of maria: 158
+ratio of not-all-zero to all: 0.02772498265303044
+ratio of hurricane to not-all-zero: 0.013696563791595015
+ratio of irma to not-all-zero: 0.008477388602286784
+ratio of harvey to not-all-zero: 0.011283072374573868
+ratio of maria to not-all-zero: 0.004766645548616767
