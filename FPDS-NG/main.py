@@ -17,13 +17,13 @@ def main() :
     #removing summary page 
     wb = openpyxl.load_workbook('Hurricane_Maria_Report.xlsx')
     workbook_Maria = OneDataFrame.removeSummary(wb)
-    workbook_Maria.save('Hurricane_Maria_Report.xlsx')
+    workbook_Maria.save('Hurricane_Maria_Report_new.xlsx')
     wb = openpyxl.load_workbook('Hurricane_Harvey_Report.xlsx')
     workbook_Harvey = OneDataFrame.removeSummary(wb)
-    workbook_Harvey.save('Hurricane_Harvey_Report.xlsx')
+    workbook_Harvey.save('Hurricane_Harvey_Report_new.xlsx')
     wb = openpyxl.load_workbook('Hurricane_Irma_Report.xlsx')
     workbook_Irma = OneDataFrame.removeSummary(wb)
-    workbook_Harvey.save('Hurricane_Irma_Report.xlsx')
+    workbook_Harvey.save('Hurricane_Irma_Report_new.xlsx')
 
     #getting a pandas dataframe without headers
     df_Maria = pd.read_excel('Hurricane_Maria_Report.xlsx',skiprows = [0,1,2],
