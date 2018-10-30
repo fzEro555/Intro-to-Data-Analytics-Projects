@@ -21,7 +21,7 @@ if __name__ == "__main__":
             with open(guardian_lean, 'r') as guardian:
                 combined = combine_lean_data(reddit, nytimes, guardian)
 
-    # sort and save combined data into csv
+    # save combined data into csv
     with open("./counts_combined.csv", 'w') as combined_save:
         writer = csv.writer(combined_save, delimiter=',')
         writer.writerows(combined)
