@@ -65,7 +65,11 @@ def leanify_reddit(reddit_cleaned_directory, reddit_save_directory):
         counts = count_reddit(date_text)
         # save the counts to csv file
         with open(reddit_save_directory, 'w') as reddit_save_file:
-            ll = [['date', 'occurrence of hurricane', 'occurrence of hurricane', 'occurrence of hurricane']]
+            ll = [['date',
+                   'occurrence of hurricane',
+                   'occurrence of irma',
+                   'occurrence of harvey',
+                   'occurrence of maria']]
             ll.extend(counts)
             writer = csv.writer(reddit_save_file, delimiter=',')
             writer.writerows(ll)

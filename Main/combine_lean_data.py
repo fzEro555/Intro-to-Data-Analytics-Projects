@@ -1,6 +1,25 @@
 import csv
 
 
+# decorate line with date
+def decorate(line):
+    date = line[0].split('-')
+    return int(date[0]), int(date[1]), int(date[2]), line
+
+
+# sort the data on date, the first column
+def sort_on_date(combined):
+    # decorate
+    decorated = [decorate(line) for line in combined]
+    # sort on day, month, year
+    decorated = sorted(decorated, key=lambda line: line[2])
+    decorated = sorted(decorated, key=lambda line: line[1])
+    decorated = sorted(decorated, key=lambda line: line[0])
+    # undecorate
+    combined = [line[3] for line in decorated]
+    return combined
+
+
 def aggregate(combined, source):
     for s in source:
         if s[0] in combined:
@@ -51,9 +70,14 @@ def combine_lean_data(reddit_file, nytimes_file, guardian_file):
 
     # turn into list and return
     combined_list = []
-    # combined_list = [[key,].extend(value) for key, value in combined.items()]
     for key, value in combined.items():
         tmp = [key,]
         tmp.extend(value)
         combined_list.append(tmp)
+
+    # sort the combined data on date
+    combined_list = sort_on_date(combined_list)
+
+    # insert header
+    combined_list.insert(0, header)
     return combined_list
