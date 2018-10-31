@@ -21,11 +21,7 @@ def cleanup(myDataframe):
 #keeping data instances only if action obligation !=0 
 def zeroDollars(myDataframe):
     valuelist = ["0.00"]
-    before = len(myDataframe.index)
     myDataframe = myDataframe[~myDataframe["Action Obligation"].isin(valuelist)]
-    after = len(myDataframe.index)
-    print("\n the number of values dropped = ", before - after, "\n")
-    print("Number of values still present = ", after,"\n")
     return myDataframe[:-1]
 
 #removes the summary page
