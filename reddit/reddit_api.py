@@ -25,7 +25,10 @@ def extractdata():
     #the first line of the csv file.
     writer.writerow(["Hurricane_Name", "Submission_Title", "Submission_Content", "Submission_Time",
                  "Total_Comment_Number", "Comment_Content", "Comment_Time"])
+<<<<<<< HEAD
     # add to this list if need data for more hurricanes
+=======
+>>>>>>> 8645dc7ba4fa6a7c19aed1c14fb11982fd5c4718
     hurricaneList = {"hurricane irma", "hurricane harvey", "hurricane maria", "hurricane irene"}
     for hurricane in hurricaneList:
         #search in all subreddits
