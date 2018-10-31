@@ -60,10 +60,9 @@ def kmeans_clustering(data_frame: pd.core.frame.DataFrame, attr_list, n_clusters
 def dbscan_clustering(data_frame: pd.core.frame.DataFrame, attr_list, n_clusters):
 	print("DBSCAN clustering")
 	clustering = DBSCAN(eps=3, min_samples=2).fit(data_frame)
-	clustering.labels_
-
-
-
+	labels = clustering.labels_
+	plt.scatter(data_frame['occurrence of hurricane'], data_frame['occurrence of maria'], c=labels,
+				cmap='rainbow')
 
 def get_attr(data_frame: pd.core.frame.DataFrame, attr_list):
 	# del data_frame['comment_time']
