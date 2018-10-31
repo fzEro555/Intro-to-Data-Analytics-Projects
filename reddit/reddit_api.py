@@ -25,7 +25,7 @@ def extractdata():
     #the first line of the csv file.
     writer.writerow(["Hurricane_Name", "Submission_Title", "Submission_Content", "Submission_Time",
                  "Total_Comment_Number", "Comment_Content", "Comment_Time"])
-    hurricaneList = {"hurricane irma", "hurricane harvey", "hurricane maria"}
+    hurricaneList = {"hurricane irma", "hurricane harvey", "hurricane maria", "hurricane irene"}
     for hurricane in hurricaneList:
         #search in all subreddits
         for submission in reddit.subreddit('all').search(hurricane):
