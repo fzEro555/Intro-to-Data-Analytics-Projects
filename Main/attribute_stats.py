@@ -1,13 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Oct 26 08:01:42 2018
 
-@author: subha
-"""
 
 import pandas as pd
 import numpy as np
-from sklearn.neighbors import LocalOutlierFactor
 
 class attribute_stats:
     #att_string is the variable that contains the attribute name
