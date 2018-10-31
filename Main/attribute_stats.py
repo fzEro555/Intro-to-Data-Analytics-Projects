@@ -32,11 +32,7 @@ class attribute_stats:
         with open('Stats.txt', 'a') as text_file:
             text_file.write("Standard Deviation for attribute: %s = %f \n"% (att_string,m))
     
-    #def attributeLOF(myDataframe, k):
-     #   clf = LocalOutlierFactor(n_neighbors=k, contamination=0.1)
-      #  dataframe_pred = clf.fit_predict(myDataframe)
-       # X_scores = clf.negative_outlier_factor_
-        #print(X_scores)
+    
     def getResults(df1, df2):
         #for the news data
         att_string = ['reddit count irma','reddit count harvey','reddit count maria',
