@@ -17,8 +17,8 @@ class OneDataFrame:
         return workbook
     
     #merging the three dataframes into a single dataframe csv
-    def mergeData(dataFrame1,dataFrame2,dataFrame3):
-        frames = [dataFrame1,dataFrame2,dataFrame3]
+    def mergeData(dataFrame1,dataFrame2,dataFrame3,dataFrame4):
+        frames = [dataFrame1,dataFrame2,dataFrame3,dataFrame4]
         result = pd.concat(frames)
         return result
         
