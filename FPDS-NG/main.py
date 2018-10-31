@@ -24,14 +24,19 @@ def main() :
     wb = openpyxl.load_workbook('Hurricane_Irma_Report.xlsx')
     workbook_Irma = OneDataFrame.removeSummary(wb)
     workbook_Harvey.save('Hurricane_Irma_Report_new.xlsx')
+    wb = openpyxl.load_workbook('Hurricane_Irene_Report.xlsx')
+    workbook_Maria = OneDataFrame.removeSummary(wb)
+    workbook_Maria.save('Hurricane_Irene_Report_new.xlsx')
 
     #getting a pandas dataframe without headers
-    df_Maria = pd.read_excel('Hurricane_Maria_Report.xlsx',skiprows = [0,1,2],
+    df_Maria = pd.read_excel('Hurricane_Maria_Report_new.xlsx',skiprows = [0,1,2],
                              parse_dates = ['Date Signed','Est. Ultimate Completion Date'])
-    df_Harvey = pd.read_excel('Hurricane_Harvey_Report.xlsx', skiprows = [0,1,2],
+    df_Harvey = pd.read_excel('Hurricane_Harvey_Report_new.xlsx', skiprows = [0,1,2],
                               parse_dates = ['Date Signed','Est. Ultimate Completion Date'])
-    df_Irma = pd.read_excel('Hurricane_Irma_Report.xlsx', skiprows = [0,1,2],
+    df_Irma = pd.read_excel('Hurricane_Irma_Report_new.xlsx', skiprows = [0,1,2],
                             parse_dates = ['Date Signed','Est. Ultimate Completion Date'])
+    df_Irene = pd.read_excel('Hurricane_Irene_Report_new.xlsx', skiprows = [0,1,2],
+                              parse_dates = ['Date Signed','Est. Ultimate Completion Date'])
     
     #cleaning the dataframe: removing certain columns and rows
     print("For Hurricane_Maria_Report:")
@@ -49,8 +54,13 @@ def main() :
     df_Irma = Cleaning.privateColumns(df_Irma)
     df_Irma = Cleaning.zeroDollars(df_Irma)
     
+    print("For Hurricane_Irene_Report:")
+    df_Irene = Cleaning.IrrCols(df_Irene)
+    df_Irene = Cleaning.privateColumns(df_Irene)
+    df_Irene = Cleaning.zeroDollars(df_Irene)
+    
     #Merging the 3 dataframe to form a single dataset csv file
-    final_Dataframe = OneDataFrame.mergeData(df_Maria,df_Harvey,df_Irma)
+    final_Dataframe = OneDataFrame.mergeData(df_Maria,df_Harvey,df_Irma,df_Irene)
     final_Dataframe.to_csv('FPDS_final.csv')
     
     
