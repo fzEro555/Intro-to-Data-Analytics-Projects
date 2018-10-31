@@ -1,0 +1,31 @@
+For the counts_combined data: 
+Mean for attribute: reddit count irma = 35.858974 
+Median for attribute: reddit count irma = 0.000000 
+Standard Deviation for attribute: reddit count irma = 212.532198 
+Mean for attribute: reddit count harvey = 24.310897 
+Median for attribute: reddit count harvey = 0.000000 
+Standard Deviation for attribute: reddit count harvey = 121.538091 
+Mean for attribute: reddit count maria = 24.727564 
+Median for attribute: reddit count maria = 0.000000 
+Standard Deviation for attribute: reddit count maria = 127.013378 
+Mean for attribute: nytimes count irma = 1.044872 
+Median for attribute: nytimes count irma = 0.000000 
+Standard Deviation for attribute: nytimes count irma = 3.129248 
+Mean for attribute: nytimes count harvey = 1.336538 
+Median for attribute: nytimes count harvey = 0.000000 
+Standard Deviation for attribute: nytimes count harvey = 3.561884 
+Mean for attribute: nytimes count maria = 0.570513 
+Median for attribute: nytimes count maria = 0.000000 
+Standard Deviation for attribute: nytimes count maria = 1.443968 
+Mean for attribute: guardian count irma = 14.173077 
+Median for attribute: guardian count irma = 9.000000 
+Standard Deviation for attribute: guardian count irma = 30.840564 
+Mean for attribute: guardian count harvey = 7.067308 
+Median for attribute: guardian count harvey = 1.000000 
+Standard Deviation for attribute: guardian count harvey = 15.360574 
+Mean for attribute: guardian count maria = 5.400641 
+Median for attribute: guardian count maria = 2.000000 
+Standard Deviation for attribute: guardian count maria = 15.515465 
+For the FPDS data: 
+Mode for attribute: Contracting Agency Name = 0    FEDERAL EMERGENCY MANAGEMENT AGENCY
+dtype: object 
