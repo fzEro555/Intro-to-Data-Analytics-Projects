@@ -2,7 +2,6 @@
 import pandas as pd
 import numpy as np
 from sklearn.neighbors import LocalOutlierFactor
-import matplotlib.pyplot as plt
 
 def LOF(myDataframe, k):
     #removing date attribute because that is irrelevant
@@ -15,7 +14,6 @@ def LOF(myDataframe, k):
     
 if __name__ == "__main__":
     news_data = pd.read_csv("./counts_combined.csv")
-    FPDS_data = pd.read_csv("./FPDS_final.csv")
     #print(LOF(news_data, 20))
     #print(LOF(news_data,25))
     print(LOF(news_data,30))
