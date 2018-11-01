@@ -29,24 +29,20 @@ def upload_data(csv_file: str) -> pd.core.frame.DataFrame:
 
 	print(data_frame.head())
 
-	col_name = list(data_frame.head(0))
-
 	# normalize data
-	norm_price = Normalizer().fit_transform(data_frame[])
+	normalized = Normalizer().fit_transform(data_frame['day'])
 
-	norm_df = pd.core.frame.DataFrame(norm_data)
-	norm_df.columns = col_name
-
-	print(norm_df.head())
+	print(normalized, type(normalized))
+	print(data_frame.head())
 
 	# print(norm_data)
 
 	# scatter plot of vars
-	scatter_matrix(norm_df)
+	scatter_matrix(data_frame)
 	plt.show()
 
 	# return normalized df
-	return norm_df
+	return data_frame
 
 
 # separate test/train data
@@ -78,8 +74,7 @@ def run_decision_tree(split_data: tuple):
 	kfold = KFold(n_splits=num_folds, random_state=seed, shuffle=False)
 	cv_results = cross_val_score(decision_tree_model, X_train, Y_train, cv=kfold, scoring=scoring)
 	results.append(cv_results)
-	names.append(name)
-	msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
+	msg = "CART decision tree classifier: %f (%f)" % (cv_results.mean(), cv_results.std())
 	print(msg)
 
 
