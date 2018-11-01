@@ -71,4 +71,4 @@ if __name__ == "__main__":
     hurricaneName(data)
     anova(data)
 
-    data.to_csv("reddit.csv")
+    data.to_csv("reddit_anova.csv")

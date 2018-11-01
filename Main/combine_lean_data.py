@@ -48,7 +48,7 @@ def pad_zeros(original, before: int, after: int):
 # combine data from reddit and news
 def combine_lean_data(reddit_file, nytimes_file, guardian_file, fpds_file):
     # turn files into lists
-    reddit = list(csv.reader(reddit_file))[1:9]
+    reddit = list(csv.reader(reddit_file))[1:]
     nytimes = list(csv.reader(nytimes_file))[1:]
     guardian = list(csv.reader(guardian_file))[1:]
     fpds = list(csv.reader(fpds_file))[1:]
@@ -74,7 +74,7 @@ def combine_lean_data(reddit_file, nytimes_file, guardian_file, fpds_file):
               "amount for irma", "amount for harvey", "amount for maria", "amount for irene"]
 
     # insert zeros to match the header of the combined data, also turn string into integer
-    reddit = [pad_zeros(line, 0, 3) for line in reddit]
+    reddit = [pad_zeros(line[:9], 0, 3) for line in reddit]
     nytimes = [pad_zeros(line, 1, 2) for line in nytimes]
     guardian = [pad_zeros(line, 2, 1) for line in guardian]
     fpds = [pad_zeros(line, 3, 0) for line in fpds]
