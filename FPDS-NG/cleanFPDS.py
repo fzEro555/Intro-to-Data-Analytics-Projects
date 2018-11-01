@@ -11,6 +11,7 @@ import openpyxl
 
 #keeping only relevant columns
 def cleanup(myDataframe):
+    myDataframe.dropna()
     realData = myDataframe[['Contracting Agency Name','Date Signed',
                             'Est. Ultimate Completion Date',
                             'Product or Service Description',
@@ -22,6 +23,7 @@ def cleanup(myDataframe):
 def zeroDollars(myDataframe):
     valuelist = ["0.00"]
     myDataframe = myDataframe[~myDataframe["Action Obligation"].isin(valuelist)]
+
     return myDataframe[:-1]
 
 #removes the summary page
