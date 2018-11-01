@@ -6,6 +6,8 @@ from nytimes.search_api import search_articles as nytimes_data
 from guardian.guardian_api import retrieve_articles as guardian_data
 from fpds.process_fpds import process_fpds as fpds_data
 
+from Main.count import count
+
 from Main.combine_lean_data import combine
 
 
@@ -24,6 +26,7 @@ if __name__ == "__main__":
     # guardian_data()
     # fpds_data()
 
-    combine()
+    count()
+    # combine()
 
     # input("any")
