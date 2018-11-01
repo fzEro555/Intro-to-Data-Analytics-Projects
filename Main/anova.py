@@ -1,7 +1,7 @@
 import csv
 import pandas as pd
 from scipy import stats
-
+from scipy.stats import levene
 
 def dateZone(date):
     dateList = ['2011-08-21', '2011-08-28', '2017-08-17', '2017-08-30',
@@ -57,8 +57,10 @@ def anova(data):
     data2 = data[data['hurricaneName'].str.contains('Irma', na=False)]['number of titles for irma']
     args = [data1, data2]
     f, p = stats.f_oneway(*args)
-    print(data1)
-    print(data2)
+    # do levene test , the result is ﻿LeveneResult(statistic=3.003859284143726, pvalue=0.09589834933076798)
+    # p is bigger than 0.05
+    print(levene(data1, data2))
+    # result is ﻿0.8119993264991475 0.3764839982630388, so the hypothesis is correct.
     print(f, p)
 
 
