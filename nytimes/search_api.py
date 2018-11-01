@@ -65,7 +65,7 @@ def search_articles():
     # search for hurricanes irene
     all_articles.extend(search(base_url, api_key, queries[3], "2011", month_ranges))
     # save to csv
-    with open("./nytimes.csv", 'w') as file_save:
+    with open("./nytimes_data.csv", 'w') as file_save:
         writer = csv.writer(file_save, delimiter=',')
         writer.writerows(all_articles)
 

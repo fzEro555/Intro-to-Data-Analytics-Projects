@@ -1,0 +1,12 @@
+,percent_missing
+Hurricane_Name,0.0
+Submission_Title,0.0
+Submission_Content,0.8218384897385822
+Submission_Time,0.0
+Total_Comment_Number,0.0
+Comment_Content,0.0
+Comment_Time,0.0
+
+
+Number of rows that have a comment content that has been deleted or removed
+0.03162366807140165

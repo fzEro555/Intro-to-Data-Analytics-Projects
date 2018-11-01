@@ -46,16 +46,33 @@ def pad_zeros(original, before: int, after: int):
 
 
 # combine data from reddit and news
-def combine_lean_data(reddit_file, nytimes_file, guardian_file):
+def combine_lean_data(reddit_file, nytimes_file, guardian_file, fpds_file):
     # turn files into lists
     reddit = list(csv.reader(reddit_file))[1:]
     nytimes = list(csv.reader(nytimes_file))[1:]
     guardian = list(csv.reader(guardian_file))[1:]
+    fpds = list(csv.reader(fpds_file))[1:]
+
+    # header = ["date", "number of contract for irma", "number of contract for harvey",
+    #           "number of contract for maria", "number of contract for irene",
+    #           "amount for irma", "amount for harvey", "amount for maria", "amount for irene",
+    #           "", "", "", ""]
 
     header = ["date",
-              "reddit count hurricane", "reddit count irma", "reddit count harvey", "reddit count maria",
-              "nytimes count hurricane", "nytimes count irma", "nytimes count harvey", "nytimes count maria",
-              "guardian count hurricane", "guardian count irma", "guardian count harvey", "guardian count maria"]
+              "number of titles for irma in reddit", "number of titles for harvey in reddit",
+              "number of titles for maria in reddit", "number of titles for irene in reddit",
+              "number of summaries for irma in reddit", "number of summaries for harvey in reddit",
+              "number of summaries for maria in reddit", "number of summaries for irene in reddit",
+              "number of titles for irma in nytimes", "number of titles for harvey in nytimes",
+              "number of titles for maria in nytimes", "number of titles for irene in nytimes",
+              "number of summaries for irma in nytimes", "number of summaries for harvey in nytimes",
+              "number of summaries for maria in nytimes", "number of summaries for irene in nytimes",
+              "number of titles for irma", "number of titles for harvey",
+              "number of titles for maria", "number of titles for irene",
+              "number of summaries for irma", "number of summaries for harvey",
+              "number of summaries for maria", "number of summaries for irene"
+
+    ]
 
     # insert zeros to match the header of the combined data, also turn string into integer
     reddit = [pad_zeros(line, 0, 2) for line in reddit]
