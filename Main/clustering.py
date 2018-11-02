@@ -13,9 +13,7 @@ from sklearn import preprocessing
 from sklearn import decomposition
 
 
-def add_data(csv_file: str
-
-) -> pd.core.frame.DataFrame:
+def add_data(csv_file: str) -> pd.core.frame.DataFrame:
 # grab data from csv file, return cleaned data frame
 data_frame = pd.read_csv(csv_file, sep=',', encoding='latin1')
 
