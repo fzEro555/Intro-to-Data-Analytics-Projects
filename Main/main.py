@@ -10,6 +10,8 @@ from Main.count import count
 
 from Main.combine_lean_data import combine
 
+from hypothesis_testing.decision_tree import main as decision_tree__and_random_forest
+
 
 def get_and_process_data():
     # reddit data
@@ -33,7 +35,7 @@ def get_and_process_data():
 
 def hypothesis_testing():
     # hyp1 predict level of hurricane, decision tree, random forest
-
+    decision_tree__and_random_forest()
     # hyp2 storm hits, anova, knn, svm
 
     # hyp3 government spending, naive bayes, linear regression
@@ -64,5 +66,5 @@ if __name__ == "__main__":
 
     # hypothesis testing
     hypothesis_testing()
-    
+
     # input("any")
