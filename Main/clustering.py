@@ -82,7 +82,7 @@ def dbscan_clustering(data_frame: pd.core.frame.DataFrame, n_clusters):
     plt.show()
 
 
-if __name__ == "__main__":
+def main():
     # reddit_clean = "../reddit/reddit_cleaned_data.csv"
     # nytimes_clean = "../nytimes/nytimes_cleaned.csv"
 
@@ -92,3 +92,8 @@ if __name__ == "__main__":
     kmeans_clustering(data, 3)
     hierarchical_clustering(data, 3)
     dbscan_clustering(data, 3)
+
+
+if __name__ == "__main__":
+    main()
+

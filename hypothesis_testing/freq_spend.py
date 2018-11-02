@@ -8,7 +8,8 @@ Created on Thu Nov  1 17:47:01 2018
 import numpy as np
 import pandas as pd
 
-#making simpler, more relevant columns
+
+# making simpler, more relevant columns
 def new_columns(myData):
     myData['irma_count'] = (myData['number of titles for irma in reddit'] 
                             + myData['number of titles for irma in nytimes']
@@ -29,7 +30,8 @@ def new_columns(myData):
     newData = myData[['date','irma_count','harvey_count','maria_count','irene_count',
                      'total_mentions','total_amount']]
     return newData
-    
+
+
 def labels(myData):
     range_irma = myData['irma_count'].max() - myData['irma_count'].min()
     range_harvey = myData['harvey_count'].max() - myData['harvey_count'].min()
@@ -56,12 +58,12 @@ def labels(myData):
     return myData
     
 
-
-
-if __name__ == "__main__":
+def main():
     myData = pd.read_csv('./combined_data.csv')
     newData = new_columns(myData)
     newData = labels(newData)
     newData.to_csv('count_ranges.csv')
     
     
+if __name__ == "__main__":
+    main()
