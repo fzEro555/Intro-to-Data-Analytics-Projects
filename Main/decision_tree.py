@@ -1,3 +1,7 @@
+"""
+Looking at classifying category of hurricane for hurricanes Irene, Harvey, and Maria
+"""
+
 import pandas as pd
 from pandas.tools.plotting import scatter_matrix
 import matplotlib.pyplot as plt
@@ -44,58 +48,51 @@ def date_ranges(date: str) -> str:
 
 
 def category_level(data_frame: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
+	# classify storm hit on date based on date ranges
 	for index, row in data_frame.iterrows():
 		data_frame['storm_category'] = data_frame.apply(lambda row: date_ranges(row['date']), axis=1)
 
 
 def upload_data(csv_file: str) -> pd.core.frame.DataFrame:
 	# grab data from csv file provided
-	# ************ final data wrong?
 	data_frame = pd.read_csv(csv_file, sep=',')
 
-	# cleaning
-
-	print(data_frame.head())
-
-	df_shape = data_frame.shape
-
-	print(df_shape, df_shape[0], df_shape[1])
-
-	print(data_frame.head())
+	# df_shape = data_frame.shape
+	# print(df_shape, df_shape[0], df_shape[1])
 
 	# add categories to data (class will be predicting)
 
 	category_level(data_frame)
 	data_frame['storm_category'].fillna("none", inplace=True)
-	print(df_shape, df_shape[0], df_shape[1])
 
 	print(data_frame.head())
-	# data_frame['class'] = np.zeros(df_shape[0])
-
 	# scatter plot of vars
 	# scatter_matrix(data_frame)
 	# plt.show()
-
-	# return normalized df
 	return data_frame
 
 
 # separate test/train data
 def separate_data(data_frame: pd.core.frame.DataFrame) -> tuple:
 	val_array = data_frame.values
-	X = val_array[:, 1:5]
+	# 234 - reddit titles
+	# 678 - reddit summaries
+	# 10, 11, 12 nytimes titles
+	# nytimes summaries
+	# guardian titles
+	# guardian summaries
+	# contracts
+	# amount
+	# X = val_array[:, (2, 3, 4, 6, 7, 8, 10, 11, 12, 14, 15, 16, 18, 19, 20, 22, 23, 24, 26, 27, 28, 30, 31, 32)]
+
+	X = val_array[:, (2, 3, 4, 10, 11, 12, 18, 19, 20, 26, 27, 28)]
 	Y = val_array[:, 35]
-	print(Y)
 	print(type(data_frame['storm_category'].unique().tolist()))
 	classes = data_frame['storm_category'].unique().tolist()
 	print("classes: {}".format(data_frame['storm_category'].unique().tolist()))
 	print("class counts: {}".format(data_frame['storm_category'].value_counts()))
 	print("x shape: {}".format(X.shape))
 	print("y shape: {}".format(Y.shape))
-
-
-	# Y.astype('str')
-	print(val_array[:, 33], type(val_array[:, 33]), type(Y[0]))
 
 	test_size = 0.20
 	seed = 7
@@ -108,27 +105,30 @@ def run_decision_tree(split_data: tuple):
 	# Setup 10-fold cross validation to estimate the accuracy of different models
 	# Split data into 10 parts
 	# Test options and evaluation metric
-
+	print("CART decision tree...")
 	X_train, X_validate, Y_train, Y_validate = split_data
-	# print(X_train)
-	# print(X_validate)
-	# print(Y_train)
-	# print(Y_validate)
 
 	num_folds = 10
-	num_instances = len(X_train)
 	seed = 7
 	scoring = 'accuracy'
 
 	decision_tree_model = DecisionTreeClassifier()
-
+	decision_tree_model.fit(X_train, Y_train)
 	kfold = KFold(n_splits=num_folds, random_state=seed, shuffle=False)
 	cv_results = cross_val_score(decision_tree_model, X_train, Y_train, cv=kfold, scoring=scoring)
 	msg = "CART decision tree classifier: %f (%f)" % (cv_results.mean(), cv_results.std())
 	print(msg)
 
+	predictions = decision_tree_model.predict(X_validate)
+
+	print(accuracy_score(Y_validate, predictions))
+	print(confusion_matrix(Y_validate, predictions))
+
+	print(classification_report(Y_validate, predictions))
+
 
 def run_random_forest_tree(split_data: tuple):
+	print("random_forest tree...")
 	X_train, X_validate, Y_train, Y_validate = split_data
 
 	num_folds = 10
@@ -139,16 +139,15 @@ def run_random_forest_tree(split_data: tuple):
 	clf = RandomForestClassifier(n_estimators=100, max_depth=2, random_state=0)
 	clf.fit(X_train, Y_train)
 
-
 	kfold = KFold(n_splits=num_folds, random_state=seed, shuffle=False)
 	cv_results = cross_val_score(clf, X_train, Y_train, cv=kfold, scoring=scoring)
 	msg = "Random forest tree classifier: %f (%f)" % (cv_results.mean(), cv_results.std())
 	print(msg)
 
-
-
 	predictions = clf.predict(X_validate)
+	classes = data_frame['storm_category'].unique().tolist()
 
+	print("random_forest tree...")
 	print(accuracy_score(Y_validate, predictions))
 	print(confusion_matrix(Y_validate, predictions))
 	print(classification_report(Y_validate, predictions))
@@ -159,6 +158,6 @@ if __name__ == "__main__":
 
 	data_frame = upload_data(combined_final)
 
-	# run_decision_tree(separate_data(data_frame))
+	run_decision_tree(separate_data(data_frame))
 
 	run_random_forest_tree(separate_data(data_frame))
