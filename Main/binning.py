@@ -42,8 +42,12 @@ def binning(data_frame: pd.core.frame.DataFrame)-> None:
 	data_frame['even_bins'].hist()
 
 
-if __name__ == "__main__":
+def main():
 	fpds_clean = "../FPDS-NG/FPDS_final.csv"
 
 	data_frame = upload_data(fpds_clean)
 	binning(data_frame)
+
+
+if __name__ == "__main__":
+	main()

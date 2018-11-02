@@ -44,6 +44,10 @@ def knn(data):
     print(classification_report(Y_validate, predictions))
 
 
-if __name__ == "__main__":
+def main():
     data = pd.read_csv("reddit_anova.csv")
     knn(data)
+
+
+if __name__ == "__main__":
+    main()

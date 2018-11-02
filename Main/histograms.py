@@ -69,7 +69,7 @@ def plot_histogram(data):
     return
 '''
 
-if __name__ == "__main__":
+def main():
     # with open("./counts_combined.csv", 'r') as combined_file:
     #     reader = csv.reader(combined_file, delimiter=',')
     #     combined = list(reader)
@@ -81,3 +81,7 @@ if __name__ == "__main__":
     plot_variables(data)
     plot_correlarion(data)
     # input("any key")
+
+
+if __name__ == "__main__":
+    main()

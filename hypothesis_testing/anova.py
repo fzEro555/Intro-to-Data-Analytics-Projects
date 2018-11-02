@@ -64,7 +64,7 @@ def anova(data):
     print(f, p)
 
 
-if __name__ == "__main__":
+def main():
     data = pd.read_csv("reddit.csv")
 
     calhits(data)
@@ -72,3 +72,7 @@ if __name__ == "__main__":
     anova(data)
 
     data.to_csv("reddit_anova.csv")
+
+
+if __name__ == "__main__":
+    main()

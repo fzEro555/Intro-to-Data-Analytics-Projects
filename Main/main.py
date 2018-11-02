@@ -7,10 +7,15 @@ from guardian.guardian_api import retrieve_articles as guardian_data
 from fpds.process_fpds import process_fpds as fpds_data
 
 from Main.count import count
-
 from Main.combine_lean_data import combine
 
+from Main.binning import main as binning
+from Main.histograms import main as histogram_and_correlations
+
 from hypothesis_testing.decision_tree import main as decision_tree__and_random_forest
+from hypothesis_testing.anova import main as anova
+from hypothesis_testing.knn import main as knn
+from hypothesis_testing.svm import main as svm
 
 
 def get_and_process_data():
@@ -37,7 +42,9 @@ def hypothesis_testing():
     # hyp1 predict level of hurricane, decision tree, random forest
     decision_tree__and_random_forest()
     # hyp2 storm hits, anova, knn, svm
-
+    anova()
+    knn()
+    svm()
     # hyp3 government spending, naive bayes, linear regression
 
     return
@@ -55,9 +62,9 @@ if __name__ == "__main__":
     # identify outliers (LOF) and remove them
 
     # binning
-
+    binning()
     # histogram and correlations
-
+    histogram_and_correlations()
     # clustering analysis
 
     # association rules
