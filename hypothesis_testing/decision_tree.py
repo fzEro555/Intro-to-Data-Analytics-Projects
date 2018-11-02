@@ -94,12 +94,9 @@ def separate_data(data_frame: pd.core.frame.DataFrame) -> tuple:
 
 	X = val_array[:, (2, 3, 4, 10, 11, 12, 18, 19, 20, 26, 27, 28)]
 	Y = val_array[:, 35]
-	print(type(data_frame['storm_category'].unique().tolist()))
 	classes = data_frame['storm_category'].unique().tolist()
 	print("classes: {}".format(data_frame['storm_category'].unique().tolist()))
 	print("class counts: {}".format(data_frame['storm_category'].value_counts()))
-	print("x shape: {}".format(X.shape))
-	print("y shape: {}".format(Y.shape))
 
 	test_size = 0.20
 	seed = 7
@@ -160,7 +157,7 @@ def run_roc_curve(data_frame: pd.core.frame.DataFrame):
 	plt.show()
 
 
-def run_decision_tree(split_data: tuple):
+def run_decision_tree(split_data: tuple, data_frame: pd.core.frame.DataFrame):
 	# Setup 10-fold cross validation to estimate the accuracy of different models
 	# Split data into 10 parts
 	# Test options and evaluation metric
@@ -182,9 +179,8 @@ def run_decision_tree(split_data: tuple):
 
 	print(accuracy_score(Y_validate, predictions))
 	print(confusion_matrix(Y_validate, predictions))
-
 	print(classification_report(Y_validate, predictions))
-	print(type(confusion_matrix(Y_validate, predictions)))
+
 	run_roc_curve(data_frame)
 
 
@@ -218,7 +214,7 @@ def main():
 
 	data_frame = upload_data(combined_final)
 
-	run_decision_tree(separate_data(data_frame))
+	run_decision_tree(separate_data(data_frame), data_frame)
 
 	run_random_forest_tree(separate_data(data_frame))
 
