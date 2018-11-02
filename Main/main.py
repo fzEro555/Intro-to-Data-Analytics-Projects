@@ -18,6 +18,7 @@ from hypothesis_testing.decision_tree import main as decision_tree__and_random_f
 from hypothesis_testing.anova import main as anova
 from hypothesis_testing.knn import main as knn
 from hypothesis_testing.svm import main as svm
+from hypothesis_testing.freq_spend import main as prepare_data_for_naive_bayes_and_linear_regression
 from hypothesis_testing.naive_bayes import main as naive_bayes
 from hypothesis_testing.linear_regression import main as linear_regression
 
@@ -57,6 +58,7 @@ def hypothesis_testing():
     svm()
     # hypothesis 3: government spending
     # methods used: naive bayes, linear regression
+    prepare_data_for_naive_bayes_and_linear_regression()
     naive_bayes()
     linear_regression()
     return
