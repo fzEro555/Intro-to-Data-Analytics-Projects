@@ -18,6 +18,16 @@ import numpy as np
 from sklearn.preprocessing import Normalizer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.datasets import make_classification
+from sklearn.preprocessing import label_binarize
+
+from sklearn.multiclass import OneVsRestClassifier
+
+
+from itertools import cycle
+
+from sklearn import svm, datasets
+from sklearn.metrics import roc_curve, auc
+from scipy import interp
 
 
 def date_ranges(date: str) -> str:
@@ -102,6 +112,58 @@ def separate_data(data_frame: pd.core.frame.DataFrame) -> tuple:
 	return X_train, X_validate, Y_train, Y_validate
 
 
+def run_roc_curve(data_frame: pd.core.frame.DataFrame):
+	print("ROC curve for class none against all other classes")
+	val_array = data_frame.values
+	X = val_array[:, (2, 3, 4, 10, 11, 12, 18, 19, 20, 26, 27, 28)]
+	Y = val_array[:, 35]
+
+	# code modified from http://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html
+	# Binarize the output
+	classes = data_frame['storm_category'].unique().tolist()
+	y = label_binarize(Y, classes=classes)
+	n_classes = y.shape[1]
+
+	# Add noisy features to make the problem harder
+	random_state = np.random.RandomState(0)
+	n_samples, n_features = X.shape
+	X = np.c_[X, random_state.randn(n_samples, 200 * n_features)]
+
+	# shuffle and split training and test sets
+	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.5,
+														random_state=0)
+
+	# Learn to predict each class against the other
+	classifier = OneVsRestClassifier(svm.SVC(kernel='linear', probability=True,
+											 random_state=random_state))
+	y_score = classifier.fit(X_train, y_train).decision_function(X_test)
+
+	# Compute ROC curve and ROC area for each class
+	fpr = dict()
+	tpr = dict()
+	roc_auc = dict()
+	for i in range(n_classes):
+		fpr[i], tpr[i], _ = roc_curve(y_true=y_test[:, i], y_score=y_score[:, i])
+		roc_auc[i] = auc(fpr[i], tpr[i])
+
+	# Compute micro-average ROC curve and ROC area
+	fpr["none"], tpr["none"], _ = roc_curve(y_test.ravel(), y_score.ravel())
+	roc_auc["none"] = auc(fpr["none"], tpr["none"])
+
+	plt.figure()
+	lw = 2
+	plt.plot(fpr[2], tpr[2], color='darkorange',
+			 lw=lw, label='ROC curve (area = %0.2f)' % roc_auc[2])
+	plt.plot([0, 1], [0, 1], color='navy', lw=lw, linestyle='--')
+	plt.xlim([0.0, 1.0])
+	plt.ylim([0.0, 1.05])
+	plt.xlabel('False Positive Rate')
+	plt.ylabel('True Positive Rate')
+	plt.title('Receiver operating characteristic example')
+	plt.legend(loc="lower right")
+	plt.show()
+
+
 def run_decision_tree(split_data: tuple):
 	# Setup 10-fold cross validation to estimate the accuracy of different models
 	# Split data into 10 parts
@@ -127,7 +189,7 @@ def run_decision_tree(split_data: tuple):
 
 	print(classification_report(Y_validate, predictions))
 	print(type(confusion_matrix(Y_validate, predictions)))
-	roc_curve(confusion_matrix(Y_validate, predictions))
+	run_roc_curve(data_frame)
 
 
 def run_random_forest_tree(split_data: tuple):
@@ -154,17 +216,6 @@ def run_random_forest_tree(split_data: tuple):
 	print(confusion_matrix(Y_validate, predictions))
 	print(classification_report(Y_validate, predictions))
 
-
-def roc_curve(confusion_matrix: np.ndarray) -> None:
-	print(confusion_matrix)
-	# code for summing confusion matrix found from
-	# https://stackoverflow.com/questions/31324218/scikit-learn-how-to-obtain-true-positive-true-negative-false-positive-and-fal
-
-	false_positive = confusion_matrix.sum(axis=0) - np.diag(confusion_matrix)
-	true_positive = np.diag(confusion_matrix)
-
-	plt.plot(false_positive, true_positive)
-	plt.show()
 
 def main():
 	combined_final = "../Main/combined_data.csv"
