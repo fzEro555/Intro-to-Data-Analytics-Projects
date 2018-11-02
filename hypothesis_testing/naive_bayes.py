@@ -34,7 +34,7 @@ def load_data():
     return X,Y
     
 
-if __name__ == "__main__":
+def main():
     X, Y = load_data()
     #splitting the dataset into train and test
     test_size = 0.20
@@ -47,4 +47,7 @@ if __name__ == "__main__":
     #print ()
     print("The confusion matrix will be: ")
     confusionMatrix(Y_predict,Y_validate)
-    
+
+
+if __name__ == "__main__":
+    main()
