@@ -1,4 +1,3 @@
-import csv
 
 from reddit import reddit_api, clean_reddit_data
 from reddit.process_reddit_data import process_reddit_data
@@ -16,8 +15,10 @@ from hypothesis_testing.decision_tree import main as decision_tree__and_random_f
 from hypothesis_testing.anova import main as anova
 from hypothesis_testing.knn import main as knn
 from hypothesis_testing.svm import main as svm
+from hypothesis_testing.naive_bayes import main as naive_bayes
 
 
+# get and process data from all four sources, reddit, nytimes, guardian, fpds
 def get_and_process_data():
     # reddit data
     print("Getting and processing reddit data. ")
@@ -38,15 +39,25 @@ def get_and_process_data():
     return
 
 
+def further_processing():
+    count()
+    combine()
+    return
+
+
+# include all the hypothesis testing part
 def hypothesis_testing():
-    # hyp1 predict level of hurricane, decision tree, random forest
+    # hypothesis 1: predict level of hurricane
+    # methods used: decision tree, random forest
     decision_tree__and_random_forest()
-    # hyp2 storm hits, anova, knn, svm
+    # hypothesis 2: storm hits
+    # methods used: anova, knn, svm
     anova()
     knn()
     svm()
-    # hyp3 government spending, naive bayes, linear regression
-
+    # hypothesis 3: government spending
+    # methods used: naive bayes, linear regression
+    naive_bayes()
     return
 
 
@@ -54,24 +65,25 @@ if __name__ == "__main__":
     # getting and process data
     get_and_process_data()
 
-    count()
-    combine()
+    # extract counts and other information useful for tasks for project 2
+    # including counting, combining and reshaping the data, etc
+    further_processing()
 
-    # statistical analysis
+    # statistical analysis, mean etc.
 
     # identify outliers (LOF) and remove them
 
     # binning
     binning()
+
     # histogram and correlations
     histogram_and_correlations()
+
     # clustering analysis
 
     # association rules
 
-    # predictive analysis
-
-    # hypothesis testing
+    # predictive analysis, hypothesis testing
     hypothesis_testing()
 
     # input("any")

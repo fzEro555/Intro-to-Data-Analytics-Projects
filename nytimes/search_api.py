@@ -46,12 +46,15 @@ def process_response(query, resp_json):
     return ll
 
 
+# search articles from nytimes with specific query
 def search_articles():
     base_url = "https://api.nytimes.com/svc/search/v2/articlesearch.json"
     api_key = "e7bbf035e3694a01894a2b523c4c589e"
     # hurricanes to search
     queries = ["hurricane irma", "hurricane harvey", "hurricane maria", "hurricane irene"]
-    # date ranges by months
+    # date ranges to search articles within by months
+    # hurricane irene happened in 2011, all others happened in 2018
+    # but they all happened during the second half the years
     month_ranges = [("0601", "0630"), ("0701", "0731"), ("0801", "0831"), ("0901", "0930"),
                     ("1001", "1031"), ("1101", "1130"), ("1201", "1231")]
     # the header
