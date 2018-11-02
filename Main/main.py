@@ -9,6 +9,7 @@ from fpds.process_fpds import process_fpds as fpds_data
 from Main.count import count
 from Main.combine_lean_data import combine
 
+from Main.binning import main as binning
 from Main.histograms import main as histogram_and_correlations
 
 from hypothesis_testing.decision_tree import main as decision_tree__and_random_forest
@@ -61,7 +62,7 @@ if __name__ == "__main__":
     # identify outliers (LOF) and remove them
 
     # binning
-
+    binning()
     # histogram and correlations
     histogram_and_correlations()
     # clustering analysis
