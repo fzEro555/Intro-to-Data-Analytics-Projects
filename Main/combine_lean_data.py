@@ -1,23 +1,24 @@
 import csv
+from Main.anova import hurricaneTime
 
 
-# decorate line with date
-def decorate(line):
-    date = line[0].split('-')
-    return int(date[0]), int(date[1]), int(date[2]), line
-
-
-# sort the data on date, the first column
-def sort_on_date(combined):
-    # decorate
-    decorated = [decorate(line) for line in combined]
-    # sort on day, month, year
-    decorated = sorted(decorated, key=lambda line: line[2])
-    decorated = sorted(decorated, key=lambda line: line[1])
-    decorated = sorted(decorated, key=lambda line: line[0])
-    # undecorate
-    combined = [line[3] for line in decorated]
-    return combined
+# # decorate line with date
+# def decorate(line):
+#     date = line[0].split('-')
+#     return int(date[0]), int(date[1]), int(date[2]), line
+#
+#
+# # sort the data on date, the first column
+# def sort_on_date(combined):
+#     # decorate
+#     decorated = [decorate(line) for line in combined]
+#     # sort on day, month, year
+#     decorated = sorted(decorated, key=lambda line: line[2])
+#     decorated = sorted(decorated, key=lambda line: line[1])
+#     decorated = sorted(decorated, key=lambda line: line[0])
+#     # undecorate
+#     combined = [line[3] for line in decorated]
+#     return combined
 
 
 def aggregate(combined, source):
@@ -31,7 +32,7 @@ def aggregate(combined, source):
 
 
 # pad copies of 4 zeros before and after the data
-def pad_zeros(original, before: int, after: int):
+def pad_zeros(original, before: int, after: int, count):
     ll = [original[0]]
     # pad copies of 4 zeros before the data
     for i in range(0, before):
@@ -42,6 +43,7 @@ def pad_zeros(original, before: int, after: int):
     # pad copies of 4 zeros after the data
     for i in range(0, after):
         ll.extend([0, 0, 0, 0, 0, 0, 0, 0])
+    ll.append(int(count))
     return ll
 
 
@@ -71,13 +73,15 @@ def combine_lean_data(reddit_file, nytimes_file, guardian_file, fpds_file):
 
               "number of contract for irma", "number of contract for harvey",
               "number of contract for maria", "number of contract for irene",
-              "amount for irma", "amount for harvey", "amount for maria", "amount for irene"]
+              "amount for irma", "amount for harvey", "amount for maria", "amount for irene",
+
+              "hurricanes hit counts", "hurricane name"]
 
     # insert zeros to match the header of the combined data, also turn string into integer
-    reddit = [pad_zeros(line[:9], 0, 3) for line in reddit]
-    nytimes = [pad_zeros(line, 1, 2) for line in nytimes]
-    guardian = [pad_zeros(line, 2, 1) for line in guardian]
-    fpds = [pad_zeros(line, 3, 0) for line in fpds]
+    reddit = [pad_zeros(line[1:10], 0, 3, line[11]) for line in reddit]
+    nytimes = [pad_zeros(line, 1, 2, 0) for line in nytimes]
+    guardian = [pad_zeros(line, 2, 1, 0) for line in guardian]
+    fpds = [pad_zeros(line, 3, 0, 0) for line in fpds]
 
     # aggregate data from all three sources
     combined = {}
@@ -93,8 +97,11 @@ def combine_lean_data(reddit_file, nytimes_file, guardian_file, fpds_file):
         tmp.extend(value)
         combined_list.append(tmp)
 
+    # add hurricane names
+    [line.append(hurricaneTime(line[0])) for line in combined_list]
+
     # sort the combined data on date
-    combined_list = sort_on_date(combined_list)
+    combined_list = sorted(combined_list, key=lambda line: line[0])
 
     # insert header
     combined_list.insert(0, header)
@@ -102,7 +109,7 @@ def combine_lean_data(reddit_file, nytimes_file, guardian_file, fpds_file):
 
 
 def combine():
-    with open("./reddit.csv", 'r') as reddit_file:
+    with open("./reddit_anova.csv", 'r') as reddit_file:
         with open("./nytimes.csv", 'r') as nytimes_file:
             with open("./guardian.csv", 'r') as guardian_file:
                 with open("./FPDS.csv", 'r') as fpds_file:
