@@ -12,11 +12,10 @@ def run_svm(X, Y):
     X_train, X_validate, Y_train, Y_validate = train_test_split(X, Y, test_size=test_size, random_state=seed)
 
     # set up svm
-    svm_model = svm.SVC(kernel='linear', C=1)
+    svm_model = svm.LinearSVC()
 
     # cross validation
     num_folds = 10
-    num_instances = len(X_train)
     scoring = 'accuracy'
 
     kfold = KFold(n_splits=num_folds, random_state=seed, shuffle=False)
@@ -30,16 +29,17 @@ def run_svm(X, Y):
 
 def load_data():
     # load data into data frame
-    data_frame = pd.read_csv("./reddit.csv", sep=',')
+    data_frame = pd.read_csv("./reddit_anova.csv", sep=',')
     print(data_frame.head())
     # take out x and y
     value = data_frame.values
     X = value[:, 2:11]
-    Y = [val is 0 for val in value[:, 11]]
+    Y = [v is 0 for v in value[:, 11]]
+    # Y = [process_label(line) for line in Y]
     return X, Y
 
 
 if __name__ == "__main__":
     x, y = load_data()
-    run_svm(x ,y)
+    run_svm(x, y)
     # input("\nany")
