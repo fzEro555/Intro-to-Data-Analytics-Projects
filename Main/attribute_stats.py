@@ -3,9 +3,10 @@
 import pandas as pd
 import numpy as np
 
+
 class attribute_stats:
-    #att_string is the variable that contains the attribute name
-    #functions that make the statistics
+    # att_string is the variable that contains the attribute name
+    # functions that make the statistics
     def mean(myDataframe, att_string):
         m = myDataframe[att_string].mean()
         with open('Stats.txt', 'a') as text_file:
@@ -26,7 +27,7 @@ class attribute_stats:
         with open('Stats.txt', 'a') as text_file:
             text_file.write("Standard Deviation for attribute: %s = %f \n"% (att_string,m))
     
-    
+
     def getResults(df1, df2):
         #for the news data
         att_string = ['reddit count irma','reddit count harvey','reddit count maria',
@@ -44,11 +45,11 @@ class attribute_stats:
         attribute_stats.mode(df2,att_string = 'Contracting Agency Name')
         
         
-if __name__ == "__main__":
+def main():
     news_data = pd.read_csv("./counts_combined.csv")
     FPDS_data = pd.read_csv("./FPDS_final.csv")
     attribute_stats.getResults(news_data,FPDS_data)
-    
-    
-        
-    
+
+
+if __name__ == "__main__":
+    main()
