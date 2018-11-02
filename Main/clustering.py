@@ -109,7 +109,7 @@ def get_attr(data_frame: pd.core.frame.DataFrame, attr_list):
 	return data_frame
 
 
-if __name__ == "__main__":
+def main():
 	# reddit_clean = "../reddit/reddit_cleaned_data.csv"
 	# nytimes_clean = "../nytimes/nytimes_cleaned.csv"
 
@@ -122,3 +122,7 @@ if __name__ == "__main__":
 	kmeans_clustering(data, [], 3)
 	# hierarchical_clustering(sample_df, [], 5)
 	# dbscan_clustering(sample_df, [], 5)
+
+
+if __name__ == "__main__":
+	main()

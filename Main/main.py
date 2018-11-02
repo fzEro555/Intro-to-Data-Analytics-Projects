@@ -12,6 +12,7 @@ from Main.attribute_stats import main as statistical_analysis
 from Main.LOF import main as lof
 from Main.binning import main as binning
 from Main.histograms import main as histogram_and_correlations
+from Main.clustering import main as clustering
 from Main.association_rules import main as association_rules
 
 from hypothesis_testing.decision_tree import main as decision_tree__and_random_forest
@@ -85,6 +86,7 @@ if __name__ == "__main__":
     histogram_and_correlations()
 
     # clustering analysis
+    clustering()
 
     # association rules
     association_rules()
