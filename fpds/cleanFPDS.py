@@ -9,7 +9,8 @@ import numpy as np
 import pandas as pd
 import openpyxl
 
-#keeping only relevant columns
+
+# keeping only relevant columns
 def cleanup(myDataframe):
     myDataframe.dropna()
     realData = myDataframe[['Contracting Agency Name','Date Signed',
@@ -19,30 +20,35 @@ def cleanup(myDataframe):
                             'National Interest Action','Action Obligation']]
     return realData
 
-#keeping data instances only if action obligation !=0 
+
+# keeping data instances only if action obligation !=0
 def zeroDollars(myDataframe):
     valuelist = ["0.00"]
     myDataframe = myDataframe[~myDataframe["Action Obligation"].isin(valuelist)]
 
     return myDataframe[:-1]
 
-#removes the summary page
+
+# removes the summary page
 def removeSummary(workbook):
     sheetnames = workbook.get_sheet_names()
     std = workbook.get_sheet_by_name(sheetnames[0])
     workbook.remove_sheet(std)
     return workbook
 
-#merges all dataframes into 1
+
+# merges all dataframes into 1
 def mergeData(dataFrame1,dataFrame2,dataFrame3,dataFrame4):
     frames = [dataFrame1,dataFrame2,dataFrame3,dataFrame4]
     result = pd.concat(frames)
     return result
 
+
 def makeData(myDataframe):
     myDataframe = cleanup(myDataframe)
     myDataframe = zeroDollars(myDataframe)
     return myDataframe
+
 
 if __name__ == "__main__":
     wb = openpyxl.load_workbook('Hurricane_Maria_Report.xlsx')
@@ -73,4 +79,3 @@ if __name__ == "__main__":
     final_dataframe = mergeData(df_maria,df_harvey,df_irene,df_irma)
     final_dataframe.to_csv('FPDS_final.csv')
 
-    
