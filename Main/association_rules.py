@@ -34,7 +34,7 @@ def association_rules(myDataframe,min_sup,min_conf,min_l,min_len):
 
 if __name__ == "__main__":
     myData = pd.read_csv('FPDS_final.csv')
-    association_results = association_rules(myData,0.005,0.1,2,3)
+    association_results = association_rules(myData,0.01,0.2,2,2)
     for item in association_results:
         pair = item[0] 
         items = [x for x in pair]
