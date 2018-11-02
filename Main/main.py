@@ -11,22 +11,58 @@ from Main.count import count
 from Main.combine_lean_data import combine
 
 
-def reddit_data():
+def get_and_process_data():
+    # reddit data
+    print("Getting and processing reddit data. ")
     reddit_api.extractdata()
     clean_reddit_data.nullratio()
     clean_reddit_data.invalidratio()
     clean_reddit_data.cleandata()
     process_reddit_data()
+    # nytimes data
+    print("Getting and processing nytimes data. ")
+    nytimes_data()
+    # guardian data
+    print("Getting and processing guardian data. ")
+    guardian_data()
+    # FPDS data
+    print("Processing FPDS data. ")
+    fpds_data()
+    return
+
+
+def hypothesis_testing():
+    # hyp1 predict level of hurricane, decision tree, random forest
+
+    # hyp2 storm hits, anova, knn, svm
+
+    # hyp3 government spending, naive bayes, linear regression
+
     return
 
 
 if __name__ == "__main__":
-    # reddit_data()
-    # nytimes_data()
-    # guardian_data()
-    # fpds_data()
+    # getting and process data
+    get_and_process_data()
 
     count()
-    # combine()
+    combine()
 
+    # statistical analysis
+
+    # identify outliers (LOF) and remove them
+
+    # binning
+
+    # histogram and correlations
+
+    # clustering analysis
+
+    # association rules
+
+    # predictive analysis
+
+    # hypothesis testing
+    hypothesis_testing()
+    
     # input("any")
