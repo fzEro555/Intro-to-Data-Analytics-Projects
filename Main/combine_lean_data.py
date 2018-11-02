@@ -21,11 +21,13 @@ from Main.anova import hurricaneTime
 #     return combined
 
 
+# aggregate all the counts into unique days
 def aggregate(combined, source):
+    # for each line in the source, add all columns together for each day
     for s in source:
         if s[0] in combined:
             # if this date exists, sum all counts
-            combined[s[0]] = list(map(lambda x,y:x+y, combined[s[0]], s[1:]))
+            combined[s[0]] = list(map(lambda x, y: x+y, combined[s[0]], s[1:]))
         else:
             combined[s[0]] = s[1:]
     return combined
@@ -54,7 +56,7 @@ def combine_lean_data(reddit_file, nytimes_file, guardian_file, fpds_file):
     nytimes = list(csv.reader(nytimes_file))[1:]
     guardian = list(csv.reader(guardian_file))[1:]
     fpds = list(csv.reader(fpds_file))[1:]
-
+    # create the header for the file
     header = ["date",
               "number of titles for irma in reddit", "number of titles for harvey in reddit",
               "number of titles for maria in reddit", "number of titles for irene in reddit",
@@ -90,7 +92,7 @@ def combine_lean_data(reddit_file, nytimes_file, guardian_file, fpds_file):
     aggregate(combined, guardian)
     aggregate(combined, fpds)
 
-    # turn into list and return
+    # turn into list
     combined_list = []
     for key, value in combined.items():
         tmp = [key,]
@@ -113,8 +115,10 @@ def combine():
         with open("./nytimes.csv", 'r') as nytimes_file:
             with open("./guardian.csv", 'r') as guardian_file:
                 with open("./FPDS.csv", 'r') as fpds_file:
+                    # combine all files
                     ll = combine_lean_data(reddit_file, nytimes_file, guardian_file, fpds_file)
                     with open("./combined_data.csv", 'w') as save_file:
+                        # save to csv
                         writer = csv.writer(save_file, delimiter=',')
                         writer.writerows(ll)
     return

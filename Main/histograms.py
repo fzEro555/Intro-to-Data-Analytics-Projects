@@ -28,7 +28,7 @@ def plot_correlarion(data):
         name = "nytimes_Graph_for_" + var
 
         data[var].hist(by=data['nytimes count hurricane'])
-        pl.suptitle("Histograms by nytimes count hurricane for " + var)
+        plt.suptitle("Histograms by nytimes count hurricane for " + var)
         plt.savefig(name)
         plt.clf()
         plt.show()
@@ -80,7 +80,6 @@ def main():
 
     plot_variables(data)
     plot_correlarion(data)
-    # input("any key")
 
 
 if __name__ == "__main__":
