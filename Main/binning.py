@@ -25,8 +25,8 @@ def binning(data_frame: pd.core.frame.DataFrame)-> None:
 	labels_100 = range(1, 101)
 	labels_3 = range(1, 4)
 
-	cut_bins = pd.cut(data_frame['Action Obligation'], 20, retbins=True)
-	print(cut_bins)
+	# cut_bins = pd.cut(data_frame['Action Obligation'], 20, retbins=True)
+	# print(cut_bins)
 
 	# bin data
 	mm_bins = np.digitize(data_frame['Action Obligation'], min_max_bins)
