@@ -19,7 +19,7 @@ from hypothesis_testing.anova import main as anova
 from hypothesis_testing.knn import main as knn
 from hypothesis_testing.svm import main as svm
 from hypothesis_testing.naive_bayes import main as naive_bayes
-
+from hypothesis_testing.linear_regression import main as linear_regression
 
 
 # get and process data from all four sources, reddit, nytimes, guardian, fpds
@@ -58,7 +58,7 @@ def hypothesis_testing():
     # hypothesis 3: government spending
     # methods used: naive bayes, linear regression
     naive_bayes()
-
+    linear_regression()
     return
 
 
