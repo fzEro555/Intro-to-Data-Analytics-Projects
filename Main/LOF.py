@@ -22,7 +22,8 @@ def output(myDataframe, Scores):
 
 def clean(myDataframe, Scores):
     #deleting the outliers
-    for i in range(len(myDataframe)):
+    length = len(myDataframe)
+    for i in range(0,length):
         if Scores[i] > 4:
             myDataframe.drop([i],axis=0, inplace=True)
     return myDataframe
