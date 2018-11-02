@@ -3,15 +3,18 @@ import pandas as pd
 import numpy as np
 from sklearn.neighbors import LocalOutlierFactor
 
+
 def LOF(myDataframe, k):
-    #removing date attribute because that is irrelevant
+    # removing date attribute because that is irrelevant
     del myDataframe['date']
     clf = LocalOutlierFactor(n_neighbors=k, contamination=0.1)
     prediction = clf.fit_predict(myDataframe)
     Scores = clf.negative_outlier_factor_
     return (-Scores)
+
+
 def output(myDataframe, Scores):
-    #printing the first 6 rows of outliers
+    # printing the first 6 rows of outliers
     j = 0
     for i in range(len(myDataframe)):
         if Scores[i] > 4:
@@ -20,18 +23,20 @@ def output(myDataframe, Scores):
         if j==5:
             break
 
+
 def clean(myDataframe, Scores):
-    #deleting the outliers
+    # deleting the outliers
     length = len(myDataframe)
     for i in range(0,length):
         if Scores[i] > 4:
             myDataframe.drop([i],axis=0, inplace=True)
     return myDataframe
-        
-if __name__ == "__main__":
+
+
+def main():
     myData = pd.read_csv("./combined_data.csv")
-    #selecting columns of interest
-    cols_of_interest = ['date','number of titles for irma in reddit',
+    # selecting columns of interest
+    cols_of_interest = ['date', 'number of titles for irma in reddit',
                         'number of titles for harvey in reddit',
                         'number of titles for maria in reddit',
                         'number of titles for irene in reddit',
@@ -45,14 +50,15 @@ if __name__ == "__main__":
                         'number of titles for irene in guardian']
     news_Data = myData[cols_of_interest]
     
-    #should try different values of k
+    # should try different values of k
     Scores = LOF(news_Data,30) 
-    #printing a few examples of outliers
+    # printing a few examples of outliers
     output(news_Data,Scores)
-    #cleanup the outliers
+    # cleanup the outliers
     myData = clean(myData,Scores)
-    #this should actually be our datafile but I will not be overwriting our data
-    #myData.to_csv('combined_data.csv')
+    # this should actually be our data file but I will not be overwriting our data
+    # myData.to_csv('combined_data.csv')
     
     
-    
+if __name__ == "__main__":
+    main()

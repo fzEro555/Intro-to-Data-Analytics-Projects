@@ -8,8 +8,11 @@ from fpds.process_fpds import process_fpds as fpds_data
 from Main.count import count
 from Main.combine_lean_data import combine
 
+from Main.attribute_stats import main as statistical_analysis
+from Main.LOF import main as lof
 from Main.binning import main as binning
 from Main.histograms import main as histogram_and_correlations
+from Main.association_rules import main as association_rules
 
 from hypothesis_testing.decision_tree import main as decision_tree__and_random_forest
 from hypothesis_testing.anova import main as anova
@@ -21,20 +24,16 @@ from hypothesis_testing.naive_bayes import main as naive_bayes
 # get and process data from all four sources, reddit, nytimes, guardian, fpds
 def get_and_process_data():
     # reddit data
-    print("Getting and processing reddit data. ")
     reddit_api.extractdata()
     clean_reddit_data.nullratio()
     clean_reddit_data.invalidratio()
     clean_reddit_data.cleandata()
     process_reddit_data()
     # nytimes data
-    print("Getting and processing nytimes data. ")
     nytimes_data()
     # guardian data
-    print("Getting and processing guardian data. ")
     guardian_data()
     # FPDS data
-    print("Processing FPDS data. ")
     fpds_data()
     return
 
@@ -69,9 +68,11 @@ if __name__ == "__main__":
     # including counting, combining and reshaping the data, etc
     further_processing()
 
-    # statistical analysis, mean etc.
+    # statistical analysis
+    statistical_analysis()
 
     # identify outliers (LOF) and remove them
+    lof()
 
     # binning
     binning()
@@ -82,6 +83,7 @@ if __name__ == "__main__":
     # clustering analysis
 
     # association rules
+    association_rules()
 
     # predictive analysis, hypothesis testing
     hypothesis_testing()

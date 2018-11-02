@@ -41,6 +41,14 @@ def run_svm(X, Y):
     return
 
 
+# count and print the distribution of label in the data set
+def label_distribution(Y):
+    n_true = sum(Y)
+    n_false = len(Y) - n_true
+    print("\nNumber of days have hurricanes occurrence {}, number of days that don't {}".format(n_true, n_false))
+    return
+
+
 def load_data():
     # load data into data frame
     data_frame = pd.read_csv("../Main/reddit_anova.csv", sep=',')
@@ -49,12 +57,12 @@ def load_data():
     value = data_frame.values
     X = value[:, 2:11]
     Y = [v is 0 for v in value[:, 11]]
-    # Y = [process_label(line) for line in Y]
     return X, Y
 
 
 def main():
     x, y = load_data()
+    label_distribution(y)
     run_svm(x, y)
 
 
