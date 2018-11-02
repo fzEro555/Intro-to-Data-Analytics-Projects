@@ -21,6 +21,7 @@ from hypothesis_testing.svm import main as svm
 from hypothesis_testing.naive_bayes import main as naive_bayes
 
 
+
 # get and process data from all four sources, reddit, nytimes, guardian, fpds
 def get_and_process_data():
     # reddit data
@@ -57,6 +58,7 @@ def hypothesis_testing():
     # hypothesis 3: government spending
     # methods used: naive bayes, linear regression
     naive_bayes()
+
     return
 
 
