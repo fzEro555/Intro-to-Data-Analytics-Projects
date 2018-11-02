@@ -83,7 +83,7 @@ def separate_data(data_frame: pd.core.frame.DataFrame) -> tuple:
 	# guardian summaries
 	# contracts
 	# amount
-	# all 
+	# all
 	# X = val_array[:, (2, 3, 4, 6, 7, 8, 10, 11, 12, 14, 15, 16, 18, 19, 20, 22, 23, 24, 26, 27, 28, 30, 31, 32)]
 
 	X = val_array[:, (2, 3, 4, 10, 11, 12, 18, 19, 20, 26, 27, 28)]
