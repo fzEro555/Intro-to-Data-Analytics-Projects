@@ -20,6 +20,7 @@ def add_data(csv_file: str) -> pd.core.frame.DataFrame:
 
 
 def hierarchical_clustering(data_frame: pd.core.frame.DataFrame, n_clusters):
+    print("HIERARCHICAL CLUSTERING")
     x = data_frame.values
     min_max_scaler = preprocessing.MinMaxScaler()
     x_scaled = min_max_scaler.fit_transform(x)
