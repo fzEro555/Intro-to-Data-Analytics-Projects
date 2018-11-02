@@ -53,9 +53,7 @@ def labels(myData):
         if x < range_irene/3 else ('medium') if x<2*range_irene/3 else 'high')
     myData['mentions_range'] = myData['total_mentions'].apply(lambda x: 'low' 
         if x < range_mentions/2 else 'high')
-    newData = myData[['irma_range','harvey_range','irene_range','maria_range'
-                          ,'mentions_range','total_amount']]
-    return newData
+    return myData
     
 
 
