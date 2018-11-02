@@ -2,6 +2,9 @@ from sklearn import svm
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_score
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score
 import pandas as pd
 
 
@@ -13,6 +16,7 @@ def run_svm(X, Y):
 
     # set up svm
     svm_model = svm.LinearSVC()
+    svm_model.fit(X_train, Y_train)
 
     # cross validation
     num_folds = 10
@@ -22,14 +26,24 @@ def run_svm(X, Y):
 
     cv_results = cross_val_score(svm_model, X_train, Y_train, cv=kfold, scoring=scoring)
 
-    # print results
-    print("SVM cv score: {} ({})".format(cv_results.mean(), cv_results.std()))
+    # print cross-validation score
+    print("\nSVM cross-validation score: {} ({})".format(cv_results.mean(), cv_results.std()))
+
+    # use trained model to predict
+    predictions = svm_model.predict(X_validate)
+
+    print(accuracy_score(Y_validate, predictions))
+    print()
+    print(confusion_matrix(Y_validate, predictions))
+    print()
+    print(classification_report(Y_validate, predictions))
+
     return
 
 
 def load_data():
     # load data into data frame
-    data_frame = pd.read_csv("./reddit_anova.csv", sep=',')
+    data_frame = pd.read_csv("../Main/reddit_anova.csv", sep=',')
     print(data_frame.head())
     # take out x and y
     value = data_frame.values
