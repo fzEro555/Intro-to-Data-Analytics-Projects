@@ -65,13 +65,8 @@ def anova(data):
 
 
 def main():
-    data = pd.read_csv("reddit.csv")
-
-    calhits(data)
-    hurricaneName(data)
+    data = pd.read_csv("reddit_anova.csv")
     anova(data)
-
-    data.to_csv("reddit_anova.csv")
 
 
 if __name__ == "__main__":
