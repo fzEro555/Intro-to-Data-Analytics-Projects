@@ -154,7 +154,7 @@ def run_random_forest_tree(split_data: tuple):
 	print(classification_report(Y_validate, predictions))
 
 
-if __name__ == "__main__":
+def main():
 	combined_final = "combined_data.csv"
 
 	data_frame = upload_data(combined_final)
@@ -162,3 +162,7 @@ if __name__ == "__main__":
 	run_decision_tree(separate_data(data_frame))
 
 	run_random_forest_tree(separate_data(data_frame))
+
+
+if __name__ == "__main__":
+	main()
