@@ -7,8 +7,9 @@ from guardian.guardian_api import retrieve_articles as guardian_data
 from fpds.process_fpds import process_fpds as fpds_data
 
 from Main.count import count
-
 from Main.combine_lean_data import combine
+
+from Main.histograms import main as histogram_and_correlations
 
 from hypothesis_testing.decision_tree import main as decision_tree__and_random_forest
 from hypothesis_testing.anova import main as anova
@@ -62,7 +63,7 @@ if __name__ == "__main__":
     # binning
 
     # histogram and correlations
-
+    histogram_and_correlations()
     # clustering analysis
 
     # association rules
