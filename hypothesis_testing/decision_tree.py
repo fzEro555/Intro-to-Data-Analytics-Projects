@@ -65,7 +65,7 @@ def upload_data(csv_file: str) -> pd.core.frame.DataFrame:
 	category_level(data_frame)
 	data_frame['storm_category'].fillna("none", inplace=True)
 
-	print(data_frame.head())
+	# print(data_frame.head())
 	# scatter plot of vars
 	# scatter_matrix(data_frame)
 	# plt.show()
@@ -126,6 +126,8 @@ def run_decision_tree(split_data: tuple):
 	print(confusion_matrix(Y_validate, predictions))
 
 	print(classification_report(Y_validate, predictions))
+	print(type(confusion_matrix(Y_validate, predictions)))
+	roc_curve(confusion_matrix(Y_validate, predictions))
 
 
 def run_random_forest_tree(split_data: tuple):
@@ -146,7 +148,6 @@ def run_random_forest_tree(split_data: tuple):
 	print(msg)
 
 	predictions = clf.predict(X_validate)
-	classes = data_frame['storm_category'].unique().tolist()
 
 	print("random_forest tree...")
 	print(accuracy_score(Y_validate, predictions))
@@ -154,8 +155,19 @@ def run_random_forest_tree(split_data: tuple):
 	print(classification_report(Y_validate, predictions))
 
 
+def roc_curve(confusion_matrix: np.ndarray) -> None:
+	print(confusion_matrix)
+	# code for summing confusion matrix found from
+	# https://stackoverflow.com/questions/31324218/scikit-learn-how-to-obtain-true-positive-true-negative-false-positive-and-fal
+
+	false_positive = confusion_matrix.sum(axis=0) - np.diag(confusion_matrix)
+	true_positive = np.diag(confusion_matrix)
+
+	plt.plot(false_positive, true_positive)
+	plt.show()
+
 def main():
-	combined_final = "combined_data.csv"
+	combined_final = "../Main/combined_data.csv"
 
 	data_frame = upload_data(combined_final)
 
