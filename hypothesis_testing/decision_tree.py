@@ -19,12 +19,8 @@ from sklearn.preprocessing import Normalizer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.datasets import make_classification
 from sklearn.preprocessing import label_binarize
-
 from sklearn.multiclass import OneVsRestClassifier
-
-
 from itertools import cycle
-
 from sklearn import svm, datasets
 from sklearn.metrics import roc_curve, auc
 from scipy import interp
