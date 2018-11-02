@@ -39,7 +39,10 @@ def load_data():
     return X, Y
 
 
-if __name__ == "__main__":
+def main():
     x, y = load_data()
     run_svm(x, y)
-    # input("\nany")
+
+
+if __name__ == "__main__":
+    main()
