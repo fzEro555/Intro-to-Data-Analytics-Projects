@@ -63,14 +63,14 @@ def kmeans_clustering(data_frame: pd.core.frame.DataFrame, n_clusters):
     plt.show()
 
 
-def dbscan_clustering(data_frame: pd.core.frame.DataFrame, n_clusters):
+def dbscan_clustering(data_frame: pd.core.frame.DataFrame):
     print("DBSCAN clustering")
     x = data_frame.values
     min_max_scaler = preprocessing.MinMaxScaler()
     x_scaled = min_max_scaler.fit_transform(x)
     normalized_data_frame = pd.DataFrame(x_scaled)
 
-    DBSCAN_clustering = DBSCAN().fit(normalized_data_frame)
+    DBSCAN_clustering = DBSCAN()
 
     cluster_labels = DBSCAN_clustering.fit_predict(normalized_data_frame)
     pprint(cluster_labels)
@@ -92,7 +92,7 @@ def main():
 
     kmeans_clustering(data, 3)
     hierarchical_clustering(data, 3)
-    dbscan_clustering(data, 3)
+    dbscan_clustering(data)
 
 
 if __name__ == "__main__":
