@@ -15,7 +15,7 @@ from Main.histograms import main as histogram_and_correlations
 from Main.clustering import main as clustering
 from Main.association_rules import main as association_rules
 
-from hypothesis_testing.decision_tree import main as decision_tree__and_random_forest
+from hypothesis_testing.decision_tree import main as decision_tree_and_random_forest
 from hypothesis_testing.anova import main as anova
 from hypothesis_testing.knn import main as knn
 from hypothesis_testing.svm import main as svm
@@ -49,14 +49,19 @@ def further_processing():
 
 # include all the hypothesis testing part
 def hypothesis_testing():
+    print("\n\n===================={}================================\n".format("H1: Decision Tree, Random Forest"))
     # hypothesis 1: predict level of hurricane
     # methods used: decision tree, random forest
-    decision_tree__and_random_forest()
+    decision_tree_and_random_forest()
+
+    print("\n\n===================={}================================\n".format("H2: ANOVA, KNN, SVM"))
     # hypothesis 2: storm hits
     # methods used: anova, knn, svm
     anova()
     knn()
     svm()
+
+    print("\n\n===================={}================================\n".format("H3: Naive Bayes, Linear Regression"))
     # hypothesis 3: government spending
     # methods used: naive bayes, linear regression
     prepare_data_for_naive_bayes_and_linear_regression()
@@ -66,29 +71,35 @@ def hypothesis_testing():
 
 
 if __name__ == "__main__":
-    # getting and process data
-    get_and_process_data()
+    # # getting and process data
+    # get_and_process_data()
 
-    # extract counts and other information useful for tasks for project 2
-    # including counting, combining and reshaping the data, etc
-    further_processing()
+    # # extract counts and other information useful for tasks for project 2
+    # # including counting, combining and reshaping the data, etc
+    # further_processing()
 
     # statistical analysis
+    print("\n\n===================={}================================\n".format("Statistical Analysis"))
     statistical_analysis()
 
     # identify outliers (LOF) and remove them
+    print("\n\n===================={}================================\n".format("LOF"))
     lof()
 
     # binning
+    print("\n\n===================={}================================\n".format("Binning"))
     binning()
 
     # histogram and correlations
+    print("\n\n===================={}================================\n".format("Histogram and Correlations"))
     histogram_and_correlations()
 
     # clustering analysis
+    print("\n\n===================={}================================\n".format("Clustering Analysis"))
     clustering()
 
     # association rules
+    print("\n\n===================={}================================\n".format("Association Rules"))
     association_rules()
 
     # predictive analysis, hypothesis testing
