@@ -92,7 +92,7 @@ if __name__ == "__main__":
 
     # histogram and correlations
     print("\n\n===================={}================================\n".format("Histogram and Correlations"))
-    # histogram_and_correlations()
+    histogram_and_correlations()
 
     # clustering analysis
     print("\n\n===================={}================================\n".format("Clustering Analysis"))
