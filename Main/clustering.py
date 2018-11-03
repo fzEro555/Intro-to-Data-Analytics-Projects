@@ -90,8 +90,8 @@ def main():
     data = pd.read_csv("FPDS.csv")
     data = data.drop(['date'], axis=1)
 
-    kmeans_clustering(data, 3)
-    hierarchical_clustering(data, 3)
+    kmeans_clustering(data, 4)
+    hierarchical_clustering(data, 4)
     dbscan_clustering(data)
 
 
