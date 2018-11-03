@@ -64,7 +64,7 @@ def hypothesis_testing():
     print("\n\n===================={}================================\n".format("H3: Naive Bayes, Linear Regression"))
     # hypothesis 3: government spending
     # methods used: naive bayes, linear regression
-    prepare_data_for_naive_bayes_and_linear_regression()
+    # prepare_data_for_naive_bayes_and_linear_regression()
     naive_bayes()
     linear_regression()
     return
@@ -105,4 +105,4 @@ if __name__ == "__main__":
     # predictive analysis, hypothesis testing
     hypothesis_testing()
 
-    # input("any") 
+    # input("any")
