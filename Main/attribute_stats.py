@@ -44,11 +44,11 @@ class attribute_stats:
         attribute_stats.mode(df2,att_string = 'Contracting Agency Name')
         
         
-if __name__ == "__main__":
+def main():
     news_data = pd.read_csv("./combined_data.csv")
     FPDS_data = pd.read_csv("./FPDS_final.csv")
     attribute_stats.getResults(news_data,FPDS_data)
     
-    
-        
-    
+
+if __name__ == "__main__":
+    main()
