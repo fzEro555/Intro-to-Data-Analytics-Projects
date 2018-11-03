@@ -29,7 +29,9 @@ def hierarchical_clustering(data_frame: pd.core.frame.DataFrame, n_clusters):
     agglomerative_clustering = AgglomerativeClustering(n_clusters, affinity='euclidean', linkage='ward')
 
     cluster_labels = agglomerative_clustering.fit_predict(normalized_data_frame)
-    pprint(cluster_labels)
+
+    calinski_harabaz_avg = calinski_harabaz_score(normalized_data_frame, cluster_labels)
+    print("The average calinski_harabaz_score is :", calinski_harabaz_avg)
 
     pca2D = decomposition.PCA(2)
     # Turn the data into two columns with PCA
@@ -61,7 +63,7 @@ def kmeans_clustering(data_frame: pd.core.frame.DataFrame, n_clusters):
     # Plot using a scatter plot and shade by cluster label
     plt.scatter(x=plot_columns[:, 0], y=plot_columns[:, 1], c=cluster_labels)
     plt.show()
-
+    
 
 def dbscan_clustering(data_frame: pd.core.frame.DataFrame):
     print("DBSCAN clustering")
@@ -73,7 +75,8 @@ def dbscan_clustering(data_frame: pd.core.frame.DataFrame):
     DBSCAN_clustering = DBSCAN()
 
     cluster_labels = DBSCAN_clustering.fit_predict(normalized_data_frame)
-    pprint(cluster_labels)
+    calinski_harabaz_avg = calinski_harabaz_score(normalized_data_frame, cluster_labels)
+    print("The average calinski_harabaz_score is :", calinski_harabaz_avg)
 
     pca2D = decomposition.PCA(2)
     # Turn the data into two columns with PCA
