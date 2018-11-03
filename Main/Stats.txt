@@ -1,0 +1,31 @@
+For the combined_data data: 
+Mean for attribute: number of titles for irma in reddit = 12.640994 
+Median for attribute: number of titles for irma in reddit = 0.000000 
+Standard Deviation for attribute: number of titles for irma in reddit = 120.548783 
+Mean for attribute: number of titles for harvey in reddit = 10.217391 
+Median for attribute: number of titles for harvey in reddit = 0.000000 
+Standard Deviation for attribute: number of titles for harvey in reddit = 87.150760 
+Mean for attribute: number of titles for maria in reddit = 8.759006 
+Median for attribute: number of titles for maria in reddit = 0.000000 
+Standard Deviation for attribute: number of titles for maria in reddit = 73.879097 
+Mean for attribute: number of titles for irene in reddit = 3.718012 
+Median for attribute: number of titles for irene in reddit = 0.000000 
+Standard Deviation for attribute: number of titles for irene in reddit = 31.605879 
+Mean for attribute: number of titles for irma in nytimes = 0.000000 
+Median for attribute: number of titles for irma in nytimes = 0.000000 
+Standard Deviation for attribute: number of titles for irma in nytimes = 0.000000 
+Mean for attribute: number of titles for harvey in nytimes = 0.008696 
+Median for attribute: number of titles for harvey in nytimes = 0.000000 
+Standard Deviation for attribute: number of titles for harvey in nytimes = 0.092902 
+Mean for attribute: number of titles for maria in nytimes = 0.033540 
+Median for attribute: number of titles for maria in nytimes = 0.000000 
+Standard Deviation for attribute: number of titles for maria in nytimes = 0.295266 
+Mean for attribute: number of titles for irene in nytimes = 0.173913 
+Median for attribute: number of titles for irene in nytimes = 0.000000 
+Standard Deviation for attribute: number of titles for irene in nytimes = 1.791235 
+Mean for attribute: number of contract for irma = 1.893168 
+Median for attribute: number of contract for irma = 0.000000 
+Standard Deviation for attribute: number of contract for irma = 6.051480 
+For the FPDS data: 
+Mode for attribute: Contracting Agency Name = 0    FEDERAL EMERGENCY MANAGEMENT AGENCY
+dtype: object 
