@@ -1,5 +1,8 @@
 import re
 import csv
+import pandas as pd
+from hypothesis_testing.anova import calhits
+from hypothesis_testing.anova import hurricaneName
 
 
 def tally(ll, title, summary, r_irma, r_harvey, r_maria, r_irene, r_hurricane):
@@ -108,6 +111,12 @@ def count():
             # save to csv file
             writer = csv.writer(save, delimiter=',')
             writer.writerows(counts)
+
+    # add number of occurrence of hurricanes into reddit, and the names of hurricanes
+    data = pd.read_csv("reddit.csv")
+    calhits(data)
+    hurricaneName(data)
+    data.to_csv("reddit_anova.csv")
 
 
 if __name__ is "__main__":
