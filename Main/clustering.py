@@ -63,7 +63,7 @@ def kmeans_clustering(data_frame: pd.core.frame.DataFrame, n_clusters):
     # Plot using a scatter plot and shade by cluster label
     plt.scatter(x=plot_columns[:, 0], y=plot_columns[:, 1], c=cluster_labels)
     plt.show()
-    
+
 
 def dbscan_clustering(data_frame: pd.core.frame.DataFrame):
     print("DBSCAN clustering")
