@@ -46,19 +46,25 @@ def main():
     reddit = load_data("../basic_analysis/reddit_data.csv")
     nytimes = load_data("../basic_analysis/nytimes_data.csv")
     guardian = load_data("../basic_analysis/guardian_data.csv")
-    # reddit only
+
+    # generate topics for reddit
     print("Generate topics for reddit")
     reddit_topics = generate_topics(reddit)
     with open("./reddit_topics.txt", 'w') as write_file:
         write_file.writelines(reddit_topics)
-    # news only
-    news = []
-    news.extend(nytimes)
-    news.extend(guardian)
-    news_topics = generate_topics(news)
-    print("Generate topics for news")
-    with open("./news_topics.txt", 'w') as write_file:
-        write_file.writelines(news_topics)
+
+    # generate topics for nytimes
+    print("Generate topics for nytimes")
+    nytimes_topics = generate_topics(nytimes)
+    with open("./nytimes_topics.txt", 'w') as write_file:
+        write_file.writelines(nytimes)
+
+    # generate topics for guardian
+    print("Generate topics for guardian")
+    guardian_topics = generate_topics(guardian)
+    with open("../topic_modeling/guardian_topics.txt", 'w') as write_file:
+        write_file.writelines(guardian_topics)
+
     # all text data
     all_text = []
     all_text.extend(reddit)
@@ -66,8 +72,9 @@ def main():
     all_text.extend(guardian)
     all_topics = generate_topics(all_text)
     print("Generate topics for all")
-    with open("./all_topics.txt", 'w') as write_file:
+    with open("../topic_modeling/all_topics.txt", 'w') as write_file:
         write_file.writelines(all_topics)
+
     return
 
 
