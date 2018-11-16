@@ -57,7 +57,7 @@ def main():
     print("Generate topics for nytimes")
     nytimes_topics = generate_topics(nytimes)
     with open("./nytimes_topics.txt", 'w') as write_file:
-        write_file.writelines(nytimes)
+        write_file.writelines(nytimes_topics)
 
     # generate topics for guardian
     print("Generate topics for guardian")
