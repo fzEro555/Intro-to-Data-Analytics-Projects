@@ -4,6 +4,7 @@ from nltk.corpus import stopwords
 from nltk.classify import SklearnClassifier
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk.sentiment.vader import SentiText
+import json
 
 
 def upload_data(csv_file: str) -> pd.core.frame.DataFrame:
@@ -30,6 +31,7 @@ def get_sent_score(data_frame: pd.core.frame.DataFrame, col_list: list) -> dict:
 
 			total += 1
 
+	# return average sentiment score of data
 	score_dict = {}
 	score_dict["neg"] = neg_total/total
 	score_dict["pos"] = pos_total/total
@@ -41,10 +43,16 @@ def get_sent_score(data_frame: pd.core.frame.DataFrame, col_list: list) -> dict:
 
 
 def main():
+	all_sent_scores = dict()
 	# upload reddit data
 	reddit_csv = "../reddit/reddit.csv"
 	data_frame = upload_data(reddit_csv)
-	get_sent_score(data_frame, ["comment"])
+	# evaluate sent score for each comment in reddit data
+	all_sent_scores["reddit"] = get_sent_score(data_frame, ["comment"])
+
+	with open("all_sent.json", "w") as json_file:
+		json.dump(all_sent_scores, json_file)
+
 
 
 if __name__ == "__main__":
