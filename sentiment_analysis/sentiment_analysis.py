@@ -23,7 +23,7 @@ def get_sent_score(data_frame: pd.core.frame.DataFrame, col_list: list) -> dict:
 	total = 0
 	for index, row in data_frame.iterrows():
 		for col in col_list:
-			score = sent_analyzer.polarity_scores(row[col])
+			score = sent_analyzer.polarity_scores(str(row[col]))
 			score_list.append((row[col], score))
 			neg_total += score['neg']
 			pos_total += score['pos']
@@ -46,13 +46,19 @@ def main():
 	all_sent_scores = dict()
 	# upload reddit data
 	reddit_csv = "../reddit/reddit.csv"
-	data_frame = upload_data(reddit_csv)
+	guardian_csv = "../basic_analysis/guardian_data.csv"
+	nytimes_csv = "../basic_analysis/nytimes_data.csv"
+	reddit_df = upload_data(reddit_csv)
+	nytimes_df = upload_data(nytimes_csv)
+	guardian_df = upload_data(guardian_csv)
+
 	# evaluate sent score for each comment in reddit data
-	all_sent_scores["reddit"] = get_sent_score(data_frame, ["comment"])
+	all_sent_scores["reddit"] = get_sent_score(reddit_df, ["comment"])
+	all_sent_scores["nytimes"] = get_sent_score(nytimes_df, ["article summary"])
+	all_sent_scores["guardian"] = get_sent_score(guardian_df, ["article summary"])
 
 	with open("all_sent.json", "w") as json_file:
 		json.dump(all_sent_scores, json_file)
-
 
 
 if __name__ == "__main__":

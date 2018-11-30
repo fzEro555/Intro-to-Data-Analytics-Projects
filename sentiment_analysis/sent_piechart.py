@@ -12,7 +12,6 @@ def plot_piechart():
 	with open("all_sent.json") as json_file:
 		sent_data = json.load(json_file)
 
-
 	for source in sent_data:
 		labels = []
 		values = []
