@@ -50,19 +50,19 @@ def main():
     # generate topics for reddit
     print("Generate topics for reddit")
     reddit_topics = generate_topics(reddit)
-    with open("./reddit_topics.txt", 'w') as write_file:
+    with open("../topic_modeling/topics_reddit.txt", 'w') as write_file:
         write_file.writelines(reddit_topics)
 
     # generate topics for nytimes
     print("Generate topics for nytimes")
     nytimes_topics = generate_topics(nytimes)
-    with open("./nytimes_topics.txt", 'w') as write_file:
+    with open("../topic_modeling/topics_nytimes.txt", 'w') as write_file:
         write_file.writelines(nytimes_topics)
 
     # generate topics for guardian
     print("Generate topics for guardian")
     guardian_topics = generate_topics(guardian)
-    with open("../topic_modeling/guardian_topics.txt", 'w') as write_file:
+    with open("../topic_modeling/topics_guardian.txt", 'w') as write_file:
         write_file.writelines(guardian_topics)
 
     # all text data
@@ -72,7 +72,7 @@ def main():
     all_text.extend(guardian)
     all_topics = generate_topics(all_text)
     print("Generate topics for all")
-    with open("../topic_modeling/all_topics.txt", 'w') as write_file:
+    with open("../topic_modeling/topics_all.txt", 'w') as write_file:
         write_file.writelines(all_topics)
 
     return
