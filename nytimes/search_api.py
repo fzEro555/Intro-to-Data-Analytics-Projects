@@ -60,15 +60,15 @@ def search_articles():
     # the header
     all_articles = [["search query", "article date", "article title", "article summary"]]
     # search for hurricanes irma
-    all_articles.extend(search(base_url, api_key, queries[0], "2018", month_ranges))
+    all_articles.extend(search(base_url, api_key, queries[0], "2017", month_ranges))
     # search for hurricanes harvey
-    all_articles.extend(search(base_url, api_key, queries[1], "2018", month_ranges))
+    all_articles.extend(search(base_url, api_key, queries[1], "2017", month_ranges))
     # search for hurricanes maria
-    all_articles.extend(search(base_url, api_key, queries[2], "2018", month_ranges))
+    all_articles.extend(search(base_url, api_key, queries[2], "2017", month_ranges))
     # search for hurricanes irene
     all_articles.extend(search(base_url, api_key, queries[3], "2011", month_ranges))
     # save to csv
-    with open("./nytimes_data.csv", 'w') as file_save:
+    with open("../basic_analysis/nytimes_data.csv", 'w') as file_save:
         writer = csv.writer(file_save, delimiter=',')
         writer.writerows(all_articles)
 

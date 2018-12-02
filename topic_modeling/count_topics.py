@@ -60,6 +60,7 @@ def main():
                      ["Puerto Rico", "Hurricane", "Maria", "government"]]  # maria
     # count topics for each and save
     topics_on_day = count_topics(directory_reddit_data, reddit_topics, ' ')
+    topics_on_day.insert(0, ["date", "Climate Change", "Impact", "Send Help", "Social Media", "Politics", "Maria"])
     with open("../topic_modeling/is_topic_reddit.csv", 'w') as save_file:
         write = csv.writer(save_file, delimiter=',')
         write.writerows(topics_on_day)
@@ -74,6 +75,7 @@ def main():
                       ["shows", "awards", "dance", "article", "mtv"]]  # entertainment
     # count topics for each and save
     topics_on_day = count_topics(directory_nytimes_data, nytimes_topics, 'T')
+    topics_on_day.insert(0, ["date", "Climate Change", "Impact", "Business", "Global Warming", "Entertainment"])
     with open("../topic_modeling/is_topic_nytimes.csv", 'w') as save_file:
         write = csv.writer(save_file, delimiter=',')
         write.writerows(topics_on_day)
@@ -90,6 +92,7 @@ def main():
                        ["Elizabeth", "Queen", "Edward"]]  # the Royal
     # count topics for each and save
     topics_on_day = count_topics(directory_guardian_data, guardian_topics, 'T')
+    topics_on_day.insert(0, ["date", "Climate Change", "Impact", "Maria", "Florence", "Entertainment", "Politics", "The Royal"])
     with open("../topic_modeling/is_topic_guardian.csv", 'w') as save_file:
         write = csv.writer(save_file, delimiter=',')
         write.writerows(topics_on_day)
