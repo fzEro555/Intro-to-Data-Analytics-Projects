@@ -60,14 +60,14 @@
 			force2.start();
 			var link = vis.selectAll("line.link").data(links).enter().append("svg:line").attr("class", "link").style("stroke", "#CCC");
 			var node = vis.selectAll("g.node").data(force.nodes()).enter().append("svg:g").attr("class", "node");
-			node.append("svg:circle").attr("r", 5).style("fill", "#555").style("stroke", "#FFF").style("stroke-width", 3);
+			node.append("svg:circle").attr("r", 5).style("fill", "#BD3E31").style("stroke", "#FFF").style("stroke-width", 3);
 			node.call(force.drag);
 			var anchorLink = vis.selectAll("line.anchorLink").data(labelAnchorLinks)//.enter().append("svg:line").attr("class", "anchorLink").style("stroke", "#999");
 			var anchorNode = vis.selectAll("g.anchorNode").data(force2.nodes()).enter().append("svg:g").attr("class", "anchorNode");
 			anchorNode.append("svg:circle").attr("r", 0).style("fill", "#FFF");
 				anchorNode.append("svg:text").text(function(d, i) {
 				return i % 2 == 0 ? "" : d.node.label
-			}).style("fill", "#555").style("font-family", "Arial").style("font-size", 12);
+			}).style("fill", "#3161BD").style("font-family", "Arial").style("font-size", 12);
 			var updateLink = function() {
 				this.attr("x1", function(d) {
 					return d.source.x;
