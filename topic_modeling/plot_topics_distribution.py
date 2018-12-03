@@ -72,23 +72,23 @@ def main():
     # plot 3 graphs for each period, one from each source
     period_maria = ("2017-09-01", "2017-10-17")
     plot_topic_distribution(period_maria, reddit, "reddit")
-    # plot_topic_distribution(period_maria, nytimes, "nytimes")
-    # plot_topic_distribution(period_maria, guardian, "guardian")
-    #
-    # period_harvey = ("2017-08-02", "2017-09-19")
-    # plot_topic_distribution(period_harvey, reddit, "reddit")
-    # plot_topic_distribution(period_harvey, nytimes, "nytimes")
-    # plot_topic_distribution(period_harvey, guardian, "guardian")
-    #
-    # period_irma = ("2017-08-15", "2017-09-29")
-    # plot_topic_distribution(period_irma, reddit, "reddit")
-    # plot_topic_distribution(period_irma, nytimes, "nytimes")
-    # plot_topic_distribution(period_irma, guardian, "guardian")
-    #
-    # period_irene = ("2011-08-06", "2011-09-12")
-    # plot_topic_distribution(period_irene, reddit, "reddit")
-    # plot_topic_distribution(period_irene, nytimes, "nytimes")
-    # plot_topic_distribution(period_irene, guardian, "guardian")
+    plot_topic_distribution(period_maria, nytimes, "nytimes")
+    plot_topic_distribution(period_maria, guardian, "guardian")
+
+    period_harvey = ("2017-08-02", "2017-09-19")
+    plot_topic_distribution(period_harvey, reddit, "reddit")
+    plot_topic_distribution(period_harvey, nytimes, "nytimes")
+    plot_topic_distribution(period_harvey, guardian, "guardian")
+
+    period_irma = ("2017-08-15", "2017-09-29")
+    plot_topic_distribution(period_irma, reddit, "reddit")
+    plot_topic_distribution(period_irma, nytimes, "nytimes")
+    plot_topic_distribution(period_irma, guardian, "guardian")
+
+    period_irene = ("2011-08-06", "2011-09-12")
+    plot_topic_distribution(period_irene, reddit, "reddit")
+    plot_topic_distribution(period_irene, nytimes, "nytimes")
+    plot_topic_distribution(period_irene, guardian, "guardian")
 
     return
 
