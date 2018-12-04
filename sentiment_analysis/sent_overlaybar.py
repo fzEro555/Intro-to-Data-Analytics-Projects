@@ -1,6 +1,13 @@
+﻿  # !/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Dec  2 21:36:03 2018
+
+@author: fz
+"""
 import plotly
 
-plotly.tools.set_credentials_file(username='fzEro5', api_key='WVMUwvpFcDP9cEGLbuH9')
+plotly.tools.set_credentials_file(username='fzEro555', api_key='Whlfx48mu0VA1EjW9GVL')
 import plotly.plotly as py
 import plotly.graph_objs as go
 import pandas as pd
@@ -60,24 +67,19 @@ df1 = df[df["date"].isin(dateList1)]
 data = [
     go.Bar(
         x=df1['date'],  # assign x as the dataframe column 'x'
-        y=df1['neg'],
+        y=-df1['neg'],
         name='neg'
     ),
     go.Bar(
         x=df1['date'],
         y=df1['pos'],
         name='pos'
-    ),
-    go.Bar(
-        x=df1['date'],
-        y=df1['neu'],
-        name='neu'
     )
 ]
 
 layout = go.Layout(
-    barmode='stack',
-    title='Stacked Bar for reddit sentiment'
+    barmode='overlay',
+    title='Overlay bar for ' + file_name + ' hurricane maria'
 )
 
 fig = go.Figure(data=data, layout=layout)
@@ -88,24 +90,19 @@ df2 = df[df["date"].isin(dateList2)]
 data = [
     go.Bar(
         x=df2['date'],  # assign x as the dataframe column 'x'
-        y=df2['neg'],
+        y=-df2['neg'],
         name='neg'
     ),
     go.Bar(
         x=df2['date'],
         y=df2['pos'],
         name='pos'
-    ),
-    go.Bar(
-        x=df2['date'],
-        y=df2['neu'],
-        name='neu'
     )
 ]
 
 layout = go.Layout(
-    barmode='stack',
-    title='Stacked Bar for reddit sentiment'
+    barmode='overlay',
+    title='Overlay bar for ' + file_name + ' hurricane harvey'
 )
 
 fig = go.Figure(data=data, layout=layout)
@@ -116,24 +113,19 @@ df3 = df[df["date"].isin(dateList3)]
 data = [
     go.Bar(
         x=df3['date'],  # assign x as the dataframe column 'x'
-        y=df3['neg'],
+        y=-df3['neg'],
         name='neg'
     ),
     go.Bar(
         x=df3['date'],
         y=df3['pos'],
         name='pos'
-    ),
-    go.Bar(
-        x=df3['date'],
-        y=df3['neu'],
-        name='neu'
     )
 ]
 
 layout = go.Layout(
-    barmode='stack',
-    title='Stacked Bar for reddit sentiment'
+    barmode='overlay',
+    title='Overlay bar for ' + file_name + ' hurricane irma'
 )
 
 fig = go.Figure(data=data, layout=layout)
@@ -144,24 +136,19 @@ df4 = df[df["date"].isin(dateList4)]
 data = [
     go.Bar(
         x=df4['date'],  # assign x as the dataframe column 'x'
-        y=df4['neg'],
+        y=-df4['neg'],
         name='neg'
     ),
     go.Bar(
         x=df4['date'],
         y=df4['pos'],
         name='pos'
-    ),
-    go.Bar(
-        x=df4['date'],
-        y=df4['neu'],
-        name='neu'
     )
 ]
 
 layout = go.Layout(
-    barmode='stack',
-    title='Stacked Bar for reddit sentiment'
+    barmode='overlay',
+    title='Overlay bar for ' + file_name + ' hurricane irene'
 )
 
 fig = go.Figure(data=data, layout=layout)
