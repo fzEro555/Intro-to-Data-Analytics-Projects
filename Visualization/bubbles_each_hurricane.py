@@ -1,14 +1,11 @@
 import plotly
-plotly.tools.set_credentials_file(username = 'fzEro5', api_key = 'WVMUwvpFcDP9cEGLbuH9')
+plotly.tools.set_credentials_file(username='fzEro555', api_key='Whlfx48mu0VA1EjW9GVL')
 import plotly.plotly as py
 import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 import cufflinks as cf
 
-
-cf.set_config_file(offline=False, world_readable=True, theme='pearl')
-df = pd.read_csv("combined_data.csv", sep=',')
 # Maria
 dateList1 = ['2017-09-02', '2017-09-03', '2017-09-04', '2017-09-05', '2017-09-06',
              '2017-09-07', '2017-09-08', '2017-09-09', '2017-09-10', '2017-09-11',
@@ -19,7 +16,7 @@ dateList1 = ['2017-09-02', '2017-09-03', '2017-09-04', '2017-09-05', '2017-09-06
              '2017-10-02', '2017-10-03', '2017-10-04', '2017-10-05', '2017-10-06',
              '2017-10-07', '2017-10-08', '2017-10-09', '2017-10-10', '2017-10-11',
              '2017-10-12', '2017-10-13', '2017-10-14', '2017-10-15', '2017-10-16',
-            ]
+             ]
 
 # Harvey
 dateList2 = ['2017-08-03', '2017-08-04', '2017-08-05', '2017-08-06', '2017-08-07',
@@ -54,22 +51,38 @@ dateList4 = ['2011-08-07', '2011-08-08', '2011-08-09', '2011-08-10', '2011-08-11
              '2011-09-06', '2011-09-07', '2011-09-08', '2011-09-09', '2011-09-10',
              '2011-09-11']
 
-# Maria
-df1 = df[df["date"].isin(dateList1)]
-df1.iplot(kind='bubble', x='date', y='number of contract for maria', size='amount for maria', color = 'rgb(255, 144, 14)',
-          text='amount for maria',xTitle='date', yTitle='number of cantract for maria', filename='bubble for maria')
 
-# Harvey
-df2 = df[df["date"].isin(dateList2)]
-df2.iplot(kind='bubble', x='date', y='number of contract for harvey', size='amount for harvey', color = 'rgb(93, 164, 214)',
-          text='amount for harvey', xTitle='date', yTitle='number of cantract for harvey', filename='bubble for harvey')
+def bubblechart():
+    cf.set_config_file(offline=False, world_readable=True, theme='pearl')
+    df = pd.read_csv("combined_data.csv", sep=',')
 
-# Irma
-df3 = df[df["date"].isin(dateList3)]
-df3.iplot(kind='bubble', x='date', y='number of contract for irma', size='amount for irma', color = 'rgb(44, 160, 101)',
-          text='amount for irma', xTitle='date', yTitle='number of cantract for irma', filename='bubble for irma')
+    # Maria
+    df1 = df[df["date"].isin(dateList1)]
+    df1.iplot(kind='bubble', x='date', y='number of contract for maria', size='amount for maria',
+              color='rgb(255, 144, 14)',
+              text='amount for maria', xTitle='date', yTitle='number of cantract for maria',
+              filename='bubble for maria')
 
-#Irene
-df4 = df[df["date"].isin(dateList4)]
-df4.iplot(kind='bubble', x='date', y='number of contract for irene', size='amount for irene', color = 'rgb(255, 65, 54)',
-          text='amount for irene', xTitle='date', yTitle='number of cantract for irene', filename='bubble for irene')
+    # Harvey
+    df2 = df[df["date"].isin(dateList2)]
+    df2.iplot(kind='bubble', x='date', y='number of contract for harvey', size='amount for harvey',
+              color='rgb(93, 164, 214)',
+              text='amount for harvey', xTitle='date', yTitle='number of cantract for harvey',
+              filename='bubble for harvey')
+
+    # Irma
+    df3 = df[df["date"].isin(dateList3)]
+    df3.iplot(kind='bubble', x='date', y='number of contract for irma', size='amount for irma',
+              color='rgb(44, 160, 101)',
+              text='amount for irma', xTitle='date', yTitle='number of cantract for irma', filename='bubble for irma')
+
+    # Irene
+    df4 = df[df["date"].isin(dateList4)]
+    df4.iplot(kind='bubble', x='date', y='number of contract for irene', size='amount for irene',
+              color='rgb(255, 65, 54)',
+              text='amount for irene', xTitle='date', yTitle='number of cantract for irene',
+              filename='bubble for irene')
+
+
+if __name__ == "__main__":
+    bubblechart()
