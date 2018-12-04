@@ -1,4 +1,4 @@
-﻿  # !/usr/bin/env python3
+﻿﻿  # !/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Created on Sun Dec  2 21:36:03 2018
@@ -79,7 +79,7 @@ data = [
 
 layout = go.Layout(
     barmode='overlay',
-    title='Overlay bar for ' + file_name + ' hurricane maria'
+    title='hurricane maria'
 )
 
 fig = go.Figure(data=data, layout=layout)
@@ -102,7 +102,7 @@ data = [
 
 layout = go.Layout(
     barmode='overlay',
-    title='Overlay bar for ' + file_name + ' hurricane harvey'
+    title='hurricane harvey'
 )
 
 fig = go.Figure(data=data, layout=layout)
@@ -125,7 +125,7 @@ data = [
 
 layout = go.Layout(
     barmode='overlay',
-    title='Overlay bar for ' + file_name + ' hurricane irma'
+    title='hurricane irma'
 )
 
 fig = go.Figure(data=data, layout=layout)
@@ -148,7 +148,7 @@ data = [
 
 layout = go.Layout(
     barmode='overlay',
-    title='Overlay bar for ' + file_name + ' hurricane irene'
+    title='hurricane irene'
 )
 
 fig = go.Figure(data=data, layout=layout)
