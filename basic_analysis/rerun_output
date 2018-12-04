@@ -1,0 +1,415 @@
+
+====================Statistical Analysis================================
+
+
+
+====================LOF================================
+
+/Users/peuleupeu/bin/miniconda/envs/py35/lib/python3.5/site-packages/scipy/stats/stats.py:1713: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  return np.add.reduce(sorted[indexer] * weights, axis=axis) / sumval
+    number of titles for irma in reddit                   ...                    number of titles for irene in guardian
+41                                  0.0                   ...                                                       0.0
+
+[1 rows x 12 columns]
+    number of titles for irma in reddit                   ...                    number of titles for irene in guardian
+42                                  0.0                   ...                                                       2.0
+
+[1 rows x 12 columns]
+    number of titles for irma in reddit                   ...                    number of titles for irene in guardian
+43                                  0.0                   ...                                                       0.0
+
+[1 rows x 12 columns]
+    number of titles for irma in reddit                   ...                    number of titles for irene in guardian
+44                                  0.0                   ...                                                       4.0
+
+[1 rows x 12 columns]
+    number of titles for irma in reddit                   ...                    number of titles for irene in guardian
+45                                  0.0                   ...                                                       6.0
+
+[1 rows x 12 columns]
+
+
+====================Binning================================
+
+18.0    7667
+19.0     227
+20.0      82
+22.0      35
+21.0      26
+23.0      16
+17.0      14
+24.0      12
+25.0      10
+27.0       5
+26.0       4
+31.0       3
+28.0       3
+15.0       3
+30.0       3
+33.0       2
+16.0       2
+14.0       2
+29.0       2
+12.0       1
+1.0        1
+41.0       1
+0.0        1
+39.0       1
+46.0       1
+13.0       1
+49.0       1
+70.0       1
+66.0       1
+42.0       1
+38.0       1
+40.0       1
+Name: mm_bins, dtype: int64
+4     8057
+5       40
+3       14
+6        9
+7        3
+8        3
+1        2
+9        1
+20       1
+12       1
+13       1
+11       0
+19       0
+14       0
+15       0
+16       0
+17       0
+18       0
+2        0
+10       0
+Name: even_bins_20, dtype: int64
+
+
+====================Histogram and Correlations================================
+
+
+
+====================Clustering Analysis================================
+
+KMEANS CLUSTERING
+The average calinski_harabaz_score is : 302.2040233836201
+array([3, 1, 1, 0, 2, 1, 1, 0, 1, 1, 3, 1, 3, 1, 0, 1, 1, 0, 0, 1, 0, 0,
+       1, 0, 0, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 1, 0, 0, 1, 1, 0, 0, 1,
+       1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 3, 1, 1,
+       1, 0, 0, 0, 3, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0,
+       0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 2, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1,
+       0, 1, 0, 1, 1, 1, 1, 2, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 3, 1, 1, 1, 1, 1, 1, 2,
+       0, 1, 1, 1, 1, 0, 0, 1, 1, 3, 0, 1, 3, 0, 0, 1, 0, 3, 1, 1, 0, 1,
+       1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 2, 1, 1, 1,
+       1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1,
+       1, 1, 0, 2, 0, 0, 0, 1, 0, 2, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1,
+       1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 3, 0,
+       1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1,
+       2, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 2, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0,
+       3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 3, 1, 1, 1, 1, 0, 1, 0, 1,
+       0, 0, 0, 1, 0, 1, 1, 1, 3, 1, 1, 1, 1, 3, 1, 1, 0, 0, 0, 1, 1, 0,
+       0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0,
+       1, 0, 0, 1, 1, 1, 1, 2, 0, 1, 2, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0,
+       0, 1, 1, 3, 1, 1, 1, 1, 0, 3, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1,
+       1, 1, 1, 0, 1, 0, 0, 1, 2, 2, 0, 1, 1, 0, 1, 0, 0, 0, 3, 0, 1, 0,
+       0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1,
+       1, 1, 1, 0, 1, 2, 1, 1, 1, 2, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1,
+       0, 1, 1, 0, 1, 1, 1, 0, 1, 2, 1, 1, 0, 1, 1, 0, 1, 1, 2, 1, 0, 1,
+       0, 1, 0, 0, 0, 1, 1, 2, 3, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,
+       1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 2, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1,
+       0, 1, 0, 0, 3, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 2, 1, 1, 0, 0,
+       1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1,
+       0, 0, 0, 1, 1, 3, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 2, 3], dtype=int32)
+array([[ 6.45043732e-02,  3.94686176e-02,  2.95799715e-01,
+        -1.38777878e-16,  1.64413475e-01,  2.09637853e-02,
+         1.80484171e-01,  1.14034635e-01],
+       [ 5.03768021e-03,  7.89769777e-03,  2.73095797e-02,
+         5.21122253e-02,  1.48517709e-01,  1.26873099e-02,
+         1.47636861e-01,  1.25265799e-01],
+       [ 5.89285714e-01,  3.03234501e-01,  2.08194906e-01,
+         2.77555756e-17,  3.06225152e-01,  1.33012935e-01,
+         1.75075299e-01,  1.14034635e-01],
+       [ 6.93889390e-18, -1.38777878e-17, -2.77555756e-17,
+         4.98604651e-01,  1.46338165e-01,  7.62442935e-03,
+         1.45772494e-01,  3.57220867e-01]])
+HIERARCHICAL CLUSTERING
+The average calinski_harabaz_score is : 284.0144757319266
+DBSCAN clustering
+The average calinski_harabaz_score is : 27.680195626613273
+
+
+====================Association Rules================================
+
+Rule: HURRICANE HARVEY 2017 -> DEFENSE LOGISTICS AGENCY
+Support: 0.03135759960649287
+Confidence: 0.4885057471264368
+----------------------------------------------------
+Rule: PUERTO RICO -> DEPT OF THE ARMY
+Support: 0.030373831775700934
+Confidence: 0.35437589670014347
+----------------------------------------------------
+Rule: HURRICANE IRENE 2011 -> DEPT OF THE NAVY
+Support: 0.022749631087063453
+Confidence: 0.5522388059701492
+----------------------------------------------------
+Rule: DEPT OF THE NAVY -> VIRGINIA
+Support: 0.01278898180029513
+Confidence: 0.31044776119402984
+----------------------------------------------------
+Rule: FEDERAL ACQUISITION SERVICE -> MISSOURI
+Support: 0.012911952779144122
+Confidence: 0.7608695652173912
+----------------------------------------------------
+Rule: HURRICANE IRMA 2017 -> FLORIDA
+Support: 0.04636005902606985
+Confidence: 0.5122282608695652
+----------------------------------------------------
+Rule: U.S. COAST GUARD -> FLORIDA
+Support: 0.017461878996556813
+Confidence: 0.2222222222222222
+----------------------------------------------------
+Rule: HURRICANE HARVEY 2017 -> SMALL BUSINESS ADMINISTRATION
+Support: 0.011067388096409248
+Confidence: 0.7758620689655173
+----------------------------------------------------
+Rule: HURRICANE HARVEY 2017 -> TEXAS
+Support: 0.06259222823413674
+Confidence: 0.2720470336718332
+----------------------------------------------------
+Rule: HURRICANE IRENE 2011 -> NEW YORK
+Support: 0.03000491883915396
+Confidence: 0.6541554959785523
+----------------------------------------------------
+Rule: HURRICANE IRENE 2011 -> NORTH CAROLINA
+Support: 0.012051155927201181
+Confidence: 0.4394618834080718
+----------------------------------------------------
+Rule: HURRICANE IRENE 2011 -> PENNSYLVANIA
+Support: 0.012911952779144122
+Confidence: 0.43209876543209874
+----------------------------------------------------
+Rule: HURRICANE IRMA 2017 -> U.S. COAST GUARD
+Support: 0.03344810624692573
+Confidence: 0.42566510172143973
+----------------------------------------------------
+Rule: PUERTO RICO -> HURRICANE MARIA 2017
+Support: 0.12272503689129366
+Confidence: 0.31148564294631714
+----------------------------------------------------
+Rule: HURRICANE MARIA 2017 -> VIRGIN ISLANDS OF THE U.S.
+Support: 0.023979340875553368
+Confidence: 0.9375
+----------------------------------------------------
+Rule: OFFICE OF ASSISTANT SECRETARY FOR PREPAREDNESS AND RESPONSE -> VIRGINIA
+Support: 0.012666010821446139
+Confidence: 0.3786764705882353
+----------------------------------------------------
+Rule: PUERTO RICO -> HURRICANE MARIA 2017
+Support: 0.02914412198721102
+Confidence: 0.48966942148760334
+----------------------------------------------------
+Rule: HURRICANE IRENE 2011 -> DEPT OF THE NAVY
+Support: 0.010821446138711265
+Confidence: 0.4756756756756757
+----------------------------------------------------
+Rule: FEDERAL EMERGENCY MANAGEMENT AGENCY -> HURRICANE IRMA 2017
+Support: 0.016724053123462864
+Confidence: 0.6126126126126127
+----------------------------------------------------
+Rule: HURRICANE HARVEY 2017 -> FEDERAL EMERGENCY MANAGEMENT AGENCY
+Support: 0.0352926709296606
+Confidence: 0.32762557077625565
+----------------------------------------------------
+Rule: HURRICANE IRENE 2011 -> FEDERAL EMERGENCY MANAGEMENT AGENCY
+Support: 0.028406296114117068
+Confidence: 0.23595505617977527
+----------------------------------------------------
+Rule: HURRICANE IRENE 2011 -> FEDERAL EMERGENCY MANAGEMENT AGENCY
+Support: 0.010083620265617314
+Confidence: 0.8723404255319149
+----------------------------------------------------
+Rule: PUERTO RICO -> FEDERAL EMERGENCY MANAGEMENT AGENCY
+Support: 0.05927201180521397
+Confidence: 0.33518776077885953
+----------------------------------------------------
+Rule: FEDERAL EMERGENCY MANAGEMENT AGENCY -> HURRICANE MARIA 2017
+Support: 0.01893753074274471
+Confidence: 0.9746835443037973
+----------------------------------------------------
+Rule: U.S. COAST GUARD -> HURRICANE IRMA 2017
+Support: 0.013157894736842105
+Confidence: 0.2838196286472148
+----------------------------------------------------
+
+
+====================H1: Decision Tree, Random Forest================================
+
+classes: ['none', 'category 1', 'category 4', 'category 5']
+class counts: none          782
+category 5     27
+category 4     21
+category 1     13
+Name: storm_category, dtype: int64
+CART decision tree...
+CART decision tree classifier: 0.948090 (0.027341)
+0.9349112426035503
+[[  2   0   0   1]
+ [  0   1   0   1]
+ [  0   0   4   1]
+ [  0   0   8 151]]
+             precision    recall  f1-score   support
+
+ category 1       1.00      0.67      0.80         3
+ category 4       1.00      0.50      0.67         2
+ category 5       0.33      0.80      0.47         5
+       none       0.98      0.95      0.96       159
+
+avg / total       0.96      0.93      0.94       169
+
+ROC curve for class none against all other classes
+classes: ['none', 'category 1', 'category 4', 'category 5']
+class counts: none          782
+category 5     27
+category 4     21
+category 1     13
+Name: storm_category, dtype: int64
+random_forest tree...
+Random forest tree classifier: 0.943591 (0.025672)
+random_forest tree...
+0.9644970414201184
+[[  2   0   0   1]
+ [  0   1   0   1]
+ [  0   0   1   4]
+ [  0   0   0 159]]
+             precision    recall  f1-score   support
+
+ category 1       1.00      0.67      0.80         3
+ category 4       1.00      0.50      0.67         2
+ category 5       1.00      0.20      0.33         5
+       none       0.96      1.00      0.98       159
+
+avg / total       0.97      0.96      0.96       169
+
+
+
+====================H2: ANOVA, KNN, SVM================================
+
+LeveneResult(statistic=3.0038592841437275, pvalue=0.09589834933076777)
+0.8119993264991476 0.3764839982630388
+     Unnamed: 0        date      ...        hitsCount  hurricaneName
+0             0  2011-09-07      ...                0            NaN
+1             1  2017-08-24      ...                1         Harvey
+2             2  2011-12-24      ...                0            NaN
+3             3  2011-09-05      ...                0            NaN
+4             4  2016-09-10      ...                0            NaN
+5             5  2018-01-25      ...                0            NaN
+6             6  2018-02-11      ...                0            NaN
+7             7  2018-08-04      ...                0            NaN
+8             8  2018-10-13      ...                0            NaN
+9             9  2012-03-07      ...                0            NaN
+10           10  2011-08-29      ...                0            NaN
+11           11  2017-11-05      ...                0            NaN
+12           12  2018-03-03      ...                0            NaN
+13           13  2011-08-26      ...                1          Irene
+14           14  2018-10-29      ...                0            NaN
+15           15  2017-08-25      ...                1         Harvey
+16           16  2018-06-24      ...                0            NaN
+17           17  2012-08-28      ...                0            NaN
+18           18  2011-08-25      ...                1          Irene
+19           19  2018-08-25      ...                0            NaN
+20           20  2011-08-22      ...                1          Irene
+21           21  2011-09-15      ...                0            NaN
+22           22  2018-09-18      ...                0            NaN
+23           23  2017-10-01      ...                1          Maria
+24           24  2018-01-23      ...                0            NaN
+25           25  2018-01-28      ...                0            NaN
+26           26  2018-09-16      ...                0            NaN
+27           27  2017-11-06      ...                0            NaN
+28           28  2011-09-14      ...                0            NaN
+29           29  2017-08-27      ...                1         Harvey
+..          ...         ...      ...              ...            ...
+215         215  2016-09-09      ...                0            NaN
+216         216  2017-12-03      ...                0            NaN
+217         217  2018-07-02      ...                0            NaN
+218         218  2017-08-30      ...                2   Harvey, Irma
+219         219  2018-06-17      ...                0            NaN
+220         220  2018-05-19      ...                0            NaN
+221         221  2018-08-28      ...                0            NaN
+222         222  2016-07-25      ...                0            NaN
+223         223  2012-03-02      ...                0            NaN
+224         224  2018-02-20      ...                0            NaN
+225         225  2018-09-11      ...                0            NaN
+226         226  2017-12-19      ...                0            NaN
+227         227  2017-12-17      ...                0            NaN
+228         228  2018-07-05      ...                0            NaN
+229         229  2018-08-14      ...                0            NaN
+230         230  2018-08-10      ...                0            NaN
+231         231  2018-09-03      ...                0            NaN
+232         232  2018-06-10      ...                0            NaN
+233         233  2011-09-02      ...                0            NaN
+234         234  2017-10-15      ...                0            NaN
+235         235  2018-02-10      ...                0            NaN
+236         236  2018-10-04      ...                0            NaN
+237         237  2017-10-27      ...                0            NaN
+238         238  2011-08-27      ...                1          Irene
+239         239  2018-10-26      ...                0            NaN
+240         240  2018-09-26      ...                0            NaN
+241         241  2018-05-29      ...                0            NaN
+242         242  2015-04-11      ...                0            NaN
+243         243  2018-05-11      ...                0            NaN
+244         244  2018-10-09      ...                0            NaN
+
+[245 rows x 13 columns]
+KNN: 0.887368 (0.089758)
+0.8775510204081632
+[[ 3  5]
+ [ 1 40]]
+             precision    recall  f1-score   support
+
+      False       0.75      0.38      0.50         8
+       True       0.89      0.98      0.93        41
+
+avg / total       0.87      0.88      0.86        49
+
+   Unnamed: 0        date      ...        hitsCount  hurricaneName
+0           0  2011-09-07      ...                0            NaN
+1           1  2017-08-24      ...                1         Harvey
+2           2  2011-12-24      ...                0            NaN
+3           3  2011-09-05      ...                0            NaN
+4           4  2016-09-10      ...                0            NaN
+
+[5 rows x 13 columns]
+
+Number of days have hurricanes occurrence 202, number of days that don't 43
+
+SVM cross-validation score: 0.825 (0.13175383114794295)
+0.8571428571428571
+
+[[ 1  7]
+ [ 0 41]]
+
+             precision    recall  f1-score   support
+
+      False       1.00      0.12      0.22         8
+       True       0.85      1.00      0.92        41
+
+avg / total       0.88      0.86      0.81        49
+
+
+
+====================H3: Naive Bayes, Linear Regression================================
+
+The confusion matrix will be:
+[[  0   0   1]
+ [  0  17 143]
+ [  0   0   0]]
+Estimated coefficients:
+b_0 = -286885.59079979174  nb_1 = 239677.53209457267
+
+Process finished with exit code 0

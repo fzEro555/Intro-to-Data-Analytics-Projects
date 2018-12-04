@@ -8,7 +8,7 @@ Created on Wed Oct 31 12:32:04 2018
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from Main.apyori import apriori
+from basic_analysis.apyori import apriori
 
 
 def cleanup(myDataframe):

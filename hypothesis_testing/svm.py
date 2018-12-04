@@ -51,7 +51,7 @@ def label_distribution(Y):
 
 def load_data():
     # load data into data frame
-    data_frame = pd.read_csv("../Main/reddit_anova.csv", sep=',')
+    data_frame = pd.read_csv("../basic_analysis/reddit_anova.csv", sep=',')
     print(data_frame.head())
     # take out x and y
     value = data_frame.values

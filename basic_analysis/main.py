@@ -5,15 +5,15 @@ from nytimes.search_api import search_articles as nytimes_data
 from guardian.guardian_api import retrieve_articles as guardian_data
 from fpds.process_fpds import process_fpds as fpds_data
 
-from Main.count import count as count_mentions_in_news_and_reddit_data
-from Main.combine_lean_data import combine as combine_counts_from_news_and_reddit_data
+from basic_analysis.count import count as count_mentions_in_news_and_reddit_data
+from basic_analysis.combine_lean_data import combine as combine_counts_from_news_and_reddit_data
 
-from Main.attribute_stats import main as statistical_analysis
-from Main.LOF import main as lof
-from Main.binning import main as binning
-from Main.histograms import main as histogram_and_correlations
-from Main.clustering import main as clustering
-from Main.association_rules import main as association_rules
+from basic_analysis.attribute_stats import main as statistical_analysis
+from basic_analysis.LOF import main as lof
+from basic_analysis.binning import main as binning
+from basic_analysis.histograms import main as histogram_and_correlations
+from basic_analysis.clustering import main as clustering
+from basic_analysis.association_rules import main as association_rules
 
 from hypothesis_testing.decision_tree import main as decision_tree_and_random_forest
 from hypothesis_testing.anova import main as anova

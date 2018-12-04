@@ -210,7 +210,7 @@ def run_random_forest_tree(split_data: tuple):
 
 
 def main():
-	combined_final = "../Main/combined_data.csv"
+	combined_final = "../basic_analysis/combined_data.csv"
 
 	data_frame = upload_data(combined_final)
 
