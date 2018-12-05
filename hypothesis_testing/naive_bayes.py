@@ -27,8 +27,8 @@ def load_data():
     # attributes in x are the predictors and y will be the response
     X = myData[['irma_count','harvey_count','maria_count','irene_count']]
     max_amount = myData['total_amount'].max() - myData['total_amount'].min()
-    myData['amount_range'] = myData['total_amount'].apply(lambda x: 'low' 
-        if x < max_amount/3 else ('medium') if x<2*max_amount/3 else 'high')
+    myData['amount_range'] = myData['total_amount'].apply(lambda x: '-1.0' 
+        if x < max_amount/71 else '1.0')
     Y = myData[['amount_range']].values.reshape(-1,)
     #we use the numerical data to predict but we validate using the text data
     return X,Y
