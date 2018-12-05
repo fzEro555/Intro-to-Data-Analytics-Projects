@@ -1,10 +1,4 @@
-﻿﻿  # !/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Dec  2 21:36:03 2018
-
-@author: fz
-"""
+﻿
 import plotly
 
 plotly.tools.set_credentials_file(username='fzEro555', api_key='Whlfx48mu0VA1EjW9GVL')
@@ -68,7 +62,7 @@ data = [
     go.Bar(
         x=df1['date'],  # assign x as the dataframe column 'x'
         y=-df1['neg'],
-        name='neg'
+        name='neg',
     ),
     go.Bar(
         x=df1['date'],
@@ -84,21 +78,21 @@ layout = go.Layout(
 
 fig = go.Figure(data=data, layout=layout)
 py.iplot(fig, filename=file_name + ' for hurricane maria')
-
-# Harvey
+'''
+#Harvey
 df2 = df[df["date"].isin(dateList2)]
 data = [
-    go.Bar(
-        x=df2['date'],  # assign x as the dataframe column 'x'
-        y=-df2['neg'],
-        name='neg'
-    ),
-    go.Bar(
-        x=df2['date'],
-        y=df2['pos'],
-        name='pos'
-    )
-]
+        go.Bar(
+            x=df2['date'], # assign x as the dataframe column 'x'
+            y=-df2['neg'],
+            name='neg'
+        ),
+        go.Bar(
+            x=df2['date'],
+            y=df2['pos'],
+            name='pos'
+        )
+    ]
 
 layout = go.Layout(
     barmode='overlay',
@@ -106,22 +100,22 @@ layout = go.Layout(
 )
 
 fig = go.Figure(data=data, layout=layout)
-py.iplot(fig, filename=file_name + ' for hurricane harvey')
+py.iplot(fig, filename = file_name + ' for hurricane harvey')
 
-# Irma
+#Irma
 df3 = df[df["date"].isin(dateList3)]
 data = [
-    go.Bar(
-        x=df3['date'],  # assign x as the dataframe column 'x'
-        y=-df3['neg'],
-        name='neg'
-    ),
-    go.Bar(
-        x=df3['date'],
-        y=df3['pos'],
-        name='pos'
-    )
-]
+        go.Bar(
+            x=df3['date'], # assign x as the dataframe column 'x'
+            y=-df3['neg'],
+            name='neg'
+        ),
+        go.Bar(
+            x=df3['date'],
+            y=df3['pos'],
+            name='pos'
+        )
+    ]
 
 layout = go.Layout(
     barmode='overlay',
@@ -129,22 +123,22 @@ layout = go.Layout(
 )
 
 fig = go.Figure(data=data, layout=layout)
-py.iplot(fig, filename=file_name + ' for hurricane irma')
+py.iplot(fig, filename = file_name + ' for hurricane irma')
 
-# Irene
+#Irene
 df4 = df[df["date"].isin(dateList4)]
 data = [
-    go.Bar(
-        x=df4['date'],  # assign x as the dataframe column 'x'
-        y=-df4['neg'],
-        name='neg'
-    ),
-    go.Bar(
-        x=df4['date'],
-        y=df4['pos'],
-        name='pos'
-    )
-]
+        go.Bar(
+            x=df4['date'], # assign x as the dataframe column 'x'
+            y=-df4['neg'],
+            name='neg'
+        ),
+        go.Bar(
+            x=df4['date'],
+            y=df4['pos'],
+            name='pos'
+        )
+    ]
 
 layout = go.Layout(
     barmode='overlay',
@@ -152,7 +146,8 @@ layout = go.Layout(
 )
 
 fig = go.Figure(data=data, layout=layout)
-py.iplot(fig, filename=file_name + ' for hurricane irene')
+py.iplot(fig, filename = file_name + ' for hurricane irene')
+'''
 
 if __name__ == "__main__":
     # reddit

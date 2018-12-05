@@ -1,5 +1,7 @@
+
 import plotly
-plotly.tools.set_credentials_file(username='fzEro555', api_key='Whlfx48mu0VA1EjW9GVL')
+
+plotly.tools.set_credentials_file(username='fzEro5', api_key='JW2fEOORvG6eByCT2TfG')
 import plotly.plotly as py
 import plotly.graph_objs as go
 import pandas as pd
@@ -60,27 +62,27 @@ def bubblechart():
     df1 = df[df["date"].isin(dateList1)]
     df1.iplot(kind='bubble', x='date', y='number of contract for maria', size='amount for maria',
               color='rgb(255, 144, 14)',
-              text='amount for maria', xTitle='date', yTitle='number of cantract for maria',
+              text='amount for maria', xTitle='date', yTitle='number of cantracts for maria',
               filename='bubble for maria')
 
     # Harvey
     df2 = df[df["date"].isin(dateList2)]
     df2.iplot(kind='bubble', x='date', y='number of contract for harvey', size='amount for harvey',
               color='rgb(93, 164, 214)',
-              text='amount for harvey', xTitle='date', yTitle='number of cantract for harvey',
+              text='amount for harvey', xTitle='date', yTitle='number of cantracts for harvey',
               filename='bubble for harvey')
 
     # Irma
     df3 = df[df["date"].isin(dateList3)]
     df3.iplot(kind='bubble', x='date', y='number of contract for irma', size='amount for irma',
               color='rgb(44, 160, 101)',
-              text='amount for irma', xTitle='date', yTitle='number of cantract for irma', filename='bubble for irma')
+              text='amount for irma', xTitle='date', yTitle='number of cantracts for irma', filename='bubble for irma')
 
     # Irene
     df4 = df[df["date"].isin(dateList4)]
     df4.iplot(kind='bubble', x='date', y='number of contract for irene', size='amount for irene',
               color='rgb(255, 65, 54)',
-              text='amount for irene', xTitle='date', yTitle='number of cantract for irene',
+              text='amount for irene', xTitle='date', yTitle='number of cantracts for irene',
               filename='bubble for irene')
 
 
