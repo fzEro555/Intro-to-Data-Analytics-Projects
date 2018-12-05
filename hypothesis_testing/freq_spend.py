@@ -45,14 +45,14 @@ def labels(myData):
     myData['mentions_range'] = 0
     
     #changing the integer values to indicative ranges
-    myData['irma_range'] = myData['irma_count'].apply(lambda x: 'low' 
-        if x < range_irma/3 else ('medium') if x<2*range_irma/3 else 'high')
-    myData['harvey_range'] = myData['harvey_count'].apply(lambda x: 'low' 
-        if x < range_harvey/3 else ('medium') if x<2*range_harvey/3 else 'high')
-    myData['maria_range'] = myData['maria_count'].apply(lambda x: 'low' 
-        if x < range_maria/3 else ('medium') if x<2*range_maria/3 else 'high')
-    myData['irene_range'] = myData['irene_count'].apply(lambda x: 'low' 
-        if x < range_irene/3 else ('medium') if x<2*range_irene/3 else 'high')
+    myData['irma_range'] = myData['irma_count'].apply(lambda x: '-1.0' 
+        if x < range_irma/71 else '1.0')
+    myData['harvey_range'] = myData['harvey_count'].apply(lambda x: '-1.0' 
+        if x < range_harvey/71 else '1.0')
+    myData['maria_range'] = myData['maria_count'].apply(lambda x: '-1.0' 
+        if x < range_maria/71 else '1.0')
+    myData['irene_range'] = myData['irene_count'].apply(lambda x: '-1.0' 
+        if x < range_irene/71 else '-1.0')
     myData['mentions_range'] = myData['total_mentions'].apply(lambda x: 'low' 
         if x < range_mentions/2 else 'high')
     return myData
