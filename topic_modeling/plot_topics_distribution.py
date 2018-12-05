@@ -68,6 +68,15 @@ def plot_topic_distribution(period, data, source):
     }
     fig = Figure(data=traces, layout=layout)
     py.plot(fig)
+    # for i in range(n_topics):
+    #     trace = Scatter(
+    #         x=date,
+    #         y=value[:, i],
+    #         mode='lines+markers',
+    #         name="topic: {}".format(topic_names[i])
+    #     )
+    #     traces.append(trace)
+    # py.plot(traces, filename="Topic distribution during time period \n{} -- {} from {}".format(period[0], period[1], source))
     return
 
 
