@@ -1,6 +1,7 @@
-﻿import plotly
+﻿
+import plotly
 
-plotly.tools.set_credentials_file(username='fzEro5', api_key='WVMUwvpFcDP9cEGLbuH9')
+plotly.tools.set_credentials_file(username='fzEro5', api_key='JW2fEOORvG6eByCT2TfG')
 import plotly.plotly as py
 import plotly.graph_objs as go
 import pandas as pd
@@ -53,7 +54,7 @@ dateList4 = ['2011-08-07', '2011-08-08', '2011-08-09', '2011-08-10', '2011-08-11
 
 def barchart_amount():
     # Maria
-    df = pd.read_csv("../basic_analysis/FPDS.csv")
+    df = pd.read_csv("FPDS.csv")
 
     df1 = df[df["date"].isin(dateList1)]
     data = [

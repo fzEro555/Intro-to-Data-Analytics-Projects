@@ -1,6 +1,7 @@
+﻿
 import plotly
 
-plotly.tools.set_credentials_file(username='fzEro5', api_key='WVMUwvpFcDP9cEGLbuH9')
+plotly.tools.set_credentials_file(username='fzEro555', api_key='Whlfx48mu0VA1EjW9GVL')
 import plotly.plotly as py
 import plotly.graph_objs as go
 import pandas as pd
@@ -51,129 +52,42 @@ dateList4 = ['2011-08-07', '2011-08-08', '2011-08-09', '2011-08-10', '2011-08-11
              '2011-09-11']
 
 
-def stack_barchart_sentiment(data_frame: pd.core.frame.DataFrame, file_name):
+def stack_barchart_sentiment(data_frame: pd.core.frame.DataFrame, file_name, source):
     # Maria
     df = data_frame
+    plot_title = 'Sentiment Used to Discuss Hurricane Maria over Time Using ' + source + ' Data'
     df1 = df[df["date"].isin(dateList1)]
     data = [
         go.Bar(
             x=df1['date'],  # assign x as the dataframe column 'x'
-            y=df1['neg'],
-            name='neg'
+            y=-df1['neg'],
+            name='neg',
         ),
         go.Bar(
             x=df1['date'],
             y=df1['pos'],
             name='pos'
-        ),
-        go.Bar(
-            x=df1['date'],
-            y=df1['neu'],
-            name='neu'
         )
     ]
 
     layout = go.Layout(
-        barmode='stack',
-        title='Stacked Bar for reddit sentiment'
+        barmode='overlay',
+        title=plot_title
     )
 
     fig = go.Figure(data=data, layout=layout)
     py.iplot(fig, filename=file_name + ' for hurricane maria')
 
-    # Harvey
-    df2 = df[df["date"].isin(dateList2)]
-    data = [
-        go.Bar(
-            x=df2['date'],  # assign x as the dataframe column 'x'
-            y=df2['neg'],
-            name='neg'
-        ),
-        go.Bar(
-            x=df2['date'],
-            y=df2['pos'],
-            name='pos'
-        ),
-        go.Bar(
-            x=df2['date'],
-            y=df2['neu'],
-            name='neu'
-        )
-    ]
-
-    layout = go.Layout(
-        barmode='stack',
-        title='Stacked Bar for reddit sentiment'
-    )
-
-    fig = go.Figure(data=data, layout=layout)
-    py.iplot(fig, filename=file_name + ' for hurricane harvey')
-
-    # Irma
-    df3 = df[df["date"].isin(dateList3)]
-    data = [
-        go.Bar(
-            x=df3['date'],  # assign x as the dataframe column 'x'
-            y=df3['neg'],
-            name='neg'
-        ),
-        go.Bar(
-            x=df3['date'],
-            y=df3['pos'],
-            name='pos'
-        ),
-        go.Bar(
-            x=df3['date'],
-            y=df3['neu'],
-            name='neu'
-        )
-    ]
-
-    layout = go.Layout(
-        barmode='stack',
-        title='Stacked Bar for reddit sentiment'
-    )
-
-    fig = go.Figure(data=data, layout=layout)
-    py.iplot(fig, filename=file_name + ' for hurricane irma')
-
-    # Irene
-    df4 = df[df["date"].isin(dateList4)]
-    data = [
-        go.Bar(
-            x=df4['date'],  # assign x as the dataframe column 'x'
-            y=df4['neg'],
-            name='neg'
-        ),
-        go.Bar(
-            x=df4['date'],
-            y=df4['pos'],
-            name='pos'
-        ),
-        go.Bar(
-            x=df4['date'],
-            y=df4['neu'],
-            name='neu'
-        )
-    ]
-
-    layout = go.Layout(
-        barmode='stack',
-        title='Stacked Bar for reddit sentiment'
-    )
-
-    fig = go.Figure(data=data, layout=layout)
-    py.iplot(fig, filename=file_name + ' for hurricane irene')
 
 if __name__ == "__main__":
     # reddit
     df1 = pd.read_csv("reddit_sentiment_date.csv")
-    stack_barchart_sentiment(df1, "reddit_sentiment_date.csv")
+    stack_barchart_sentiment(df1, "reddit_sentiment_date.csv", "Reddit")
 
     # guardian
     df2 = pd.read_csv("guardian_sentiment_date.csv")
-    stack_barchart_sentiment(df2, "guardian_sentiment_date.csv")
+    stack_barchart_sentiment(df2, "guardian_sentiment_date.csv", "Guardian")
 
     # nytimes
     df3 = pd.read_csv("nytimes_sentiment_date.csv")
-    stack_barchart_sentiment(df3, "nytimes_sentiment_date.csv")
+    stack_barchart_sentiment(df3, "nytimes_sentiment_date.csv", "NYTimes")

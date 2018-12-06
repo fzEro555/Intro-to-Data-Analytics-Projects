@@ -27,12 +27,28 @@ def get_sublist(period: tuple, data: pandas.DataFrame) -> tuple:
 def plot_topic_distribution(period, data, source):
     # get sublist from data within period
     topic_names, date, value = get_sublist(period, data)
-    # add 0.25 to each cell
-    value += 1
+    # add 1 to each cell
+    # value += 1
     # normalize each column
-    row_sums = value.sum(axis=1)
-    for i, (row, r_sum) in enumerate(zip(value, row_sums)):
-        value[i, :] = row / r_sum
+    # row_sums = value.sum(axis=1)
+    # for i, (row, r_sum) in enumerate(zip(value, row_sums)):
+    #     if r_sum == 0:
+    #         # if a row is all 0, keep it at zero
+    #         value[i, :] = row / 1
+    #     else:
+    #         # if a row is not all 0, all a small value to every element to avoid the situation where 1 topic is 100%
+    #         value += 0.1
+    #         value[i, :] = row / r_sum
+    for i, row in enumerate(value):
+        r_sum = row.sum()
+        if r_sum == 0:
+            # if a row is all 0, keep it at zero
+            value[i, :] = row / 1
+        else:
+            # if a row is not all 0, all a small value to every element to avoid the situation where 1 topic is 100%
+            new_row = row + 0.01
+            r_sum = new_row.sum()
+            value[i, :] = new_row / r_sum
     # plot
     traces = []
     n_topics = len(value[0])
@@ -45,13 +61,22 @@ def plot_topic_distribution(period, data, source):
         }
         traces.append(trace)
     layout = {
-        "title": "Topic distribution during time period {} - {} from {}".format(period[0], period[1], source),
+        "title": "Topic distribution during time period \n{} -- {} from {}".format(period[0], period[1], source),
         "barmode": "stack",
         "dragmode": "zoom",
         "hovermode": "x"
     }
     fig = Figure(data=traces, layout=layout)
     py.plot(fig)
+    # for i in range(n_topics):
+    #     trace = Scatter(
+    #         x=date,
+    #         y=value[:, i],
+    #         mode='lines+markers',
+    #         name="topic: {}".format(topic_names[i])
+    #     )
+    #     traces.append(trace)
+    # py.plot(traces, filename="Topic distribution during time period \n{} -- {} from {}".format(period[0], period[1], source))
     return
 
 
@@ -70,26 +95,30 @@ def main():
     plotly.tools.set_credentials_file(username='peuleupeu', api_key='ZWZ27kkaZcUtiHOpEZ3I')
 
     # plot 3 graphs for each period, one from each source
-    period_maria = ("2017-09-01", "2017-10-17")
-    plot_topic_distribution(period_maria, reddit, "reddit")
-    plot_topic_distribution(period_maria, nytimes, "nytimes")
-    plot_topic_distribution(period_maria, guardian, "guardian")
+    # period_maria = ("2017-09-01", "2017-10-17")
+    # plot_topic_distribution(period_maria, reddit, "reddit")
+    # plot_topic_distribution(period_maria, nytimes, "nytimes")
+    # plot_topic_distribution(period_maria, guardian, "guardian")
+    #
+    # period_harvey = ("2017-08-02", "2017-09-19")
+    # plot_topic_distribution(period_harvey, reddit, "reddit")
+    # plot_topic_distribution(period_harvey, nytimes, "nytimes")
+    # plot_topic_distribution(period_harvey, guardian, "guardian")
+    #
+    # period_irma = ("2017-08-15", "2017-09-29")
+    # plot_topic_distribution(period_irma, reddit, "reddit")
+    # plot_topic_distribution(period_irma, nytimes, "nytimes")
+    # plot_topic_distribution(period_irma, guardian, "guardian")
+    #
+    # period_irene = ("2011-08-06", "2011-09-12")
+    # plot_topic_distribution(period_irene, reddit, "reddit")
+    # plot_topic_distribution(period_irene, nytimes, "nytimes")
+    # plot_topic_distribution(period_irene, guardian, "guardian")
 
-    period_harvey = ("2017-08-02", "2017-09-19")
+    period_harvey = ("2017-08-02", "2017-10-09")
     plot_topic_distribution(period_harvey, reddit, "reddit")
     plot_topic_distribution(period_harvey, nytimes, "nytimes")
     plot_topic_distribution(period_harvey, guardian, "guardian")
-
-    period_irma = ("2017-08-15", "2017-09-29")
-    plot_topic_distribution(period_irma, reddit, "reddit")
-    plot_topic_distribution(period_irma, nytimes, "nytimes")
-    plot_topic_distribution(period_irma, guardian, "guardian")
-
-    period_irene = ("2011-08-06", "2011-09-12")
-    plot_topic_distribution(period_irene, reddit, "reddit")
-    plot_topic_distribution(period_irene, nytimes, "nytimes")
-    plot_topic_distribution(period_irene, guardian, "guardian")
-
     return
 
 

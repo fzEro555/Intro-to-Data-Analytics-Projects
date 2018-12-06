@@ -1,10 +1,10 @@
 // http://bl.ocks.org/jyucsiro/767539a876836e920e38bc80d2031ba7
 function drawWordCloud(word_count){
     var svg_location = "#chart";
-    // var width = $(document).width();
-    // var height = $(document).height();
-    var width = 750;
-    var height = 500;
+    var width = $(document).width();
+    var height = $(document).height();
+//    var width = 750;
+//    var height = 500;
 
     var fill = d3.scale.category20();
 
