@@ -20,10 +20,17 @@ def plot_piechart():
 			values.append(val)
 		print(labels)
 		print(values)
+		graph_title = ""
+		if source == "reddit":
+			graph_title = "Reddit"
+		elif source == "nytimes":
+			graph_title = "New York Times"
+		elif source == "guardian":
+			graph_title = "Guardian"
 		trace = go.Pie(labels=labels,
 					   values=values,
 					   hoverinfo='label+percent', textinfo='percent',
-					   title="Average Sentiment Score for Reddit Comments")
+					   title=graph_title)
 		py.iplot([trace], filename="{}_sent_piechart".format(source))
 
 

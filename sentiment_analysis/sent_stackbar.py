@@ -51,121 +51,119 @@ dateList4 = ['2011-08-07', '2011-08-08', '2011-08-09', '2011-08-10', '2011-08-11
              '2011-09-11']
 
 
-def stack_barchart_sentiment(data_frame: pd.core.frame.DataFrame, file_name
+def stack_barchart_sentiment(data_frame: pd.core.frame.DataFrame, file_name):
+    # Maria
+    df = data_frame
+    df1 = df[df["date"].isin(dateList1)]
+    data = [
+        go.Bar(
+            x=df1['date'],  # assign x as the dataframe column 'x'
+            y=df1['neg'],
+            name='neg'
+        ),
+        go.Bar(
+            x=df1['date'],
+            y=df1['pos'],
+            name='pos'
+        ),
+        go.Bar(
+            x=df1['date'],
+            y=df1['neu'],
+            name='neu'
+        )
+    ]
 
-):
-# Maria
-df = data_frame
-df1 = df[df["date"].isin(dateList1)]
-data = [
-    go.Bar(
-        x=df1['date'],  # assign x as the dataframe column 'x'
-        y=df1['neg'],
-        name='neg'
-    ),
-    go.Bar(
-        x=df1['date'],
-        y=df1['pos'],
-        name='pos'
-    ),
-    go.Bar(
-        x=df1['date'],
-        y=df1['neu'],
-        name='neu'
+    layout = go.Layout(
+        barmode='stack',
+        title='Stacked Bar for reddit sentiment'
     )
-]
 
-layout = go.Layout(
-    barmode='stack',
-    title='Stacked Bar for reddit sentiment'
-)
+    fig = go.Figure(data=data, layout=layout)
+    py.iplot(fig, filename=file_name + ' for hurricane maria')
 
-fig = go.Figure(data=data, layout=layout)
-py.iplot(fig, filename=file_name + ' for hurricane maria')
+    # Harvey
+    df2 = df[df["date"].isin(dateList2)]
+    data = [
+        go.Bar(
+            x=df2['date'],  # assign x as the dataframe column 'x'
+            y=df2['neg'],
+            name='neg'
+        ),
+        go.Bar(
+            x=df2['date'],
+            y=df2['pos'],
+            name='pos'
+        ),
+        go.Bar(
+            x=df2['date'],
+            y=df2['neu'],
+            name='neu'
+        )
+    ]
 
-# Harvey
-df2 = df[df["date"].isin(dateList2)]
-data = [
-    go.Bar(
-        x=df2['date'],  # assign x as the dataframe column 'x'
-        y=df2['neg'],
-        name='neg'
-    ),
-    go.Bar(
-        x=df2['date'],
-        y=df2['pos'],
-        name='pos'
-    ),
-    go.Bar(
-        x=df2['date'],
-        y=df2['neu'],
-        name='neu'
+    layout = go.Layout(
+        barmode='stack',
+        title='Stacked Bar for reddit sentiment'
     )
-]
 
-layout = go.Layout(
-    barmode='stack',
-    title='Stacked Bar for reddit sentiment'
-)
+    fig = go.Figure(data=data, layout=layout)
+    py.iplot(fig, filename=file_name + ' for hurricane harvey')
 
-fig = go.Figure(data=data, layout=layout)
-py.iplot(fig, filename=file_name + ' for hurricane harvey')
+    # Irma
+    df3 = df[df["date"].isin(dateList3)]
+    data = [
+        go.Bar(
+            x=df3['date'],  # assign x as the dataframe column 'x'
+            y=df3['neg'],
+            name='neg'
+        ),
+        go.Bar(
+            x=df3['date'],
+            y=df3['pos'],
+            name='pos'
+        ),
+        go.Bar(
+            x=df3['date'],
+            y=df3['neu'],
+            name='neu'
+        )
+    ]
 
-# Irma
-df3 = df[df["date"].isin(dateList3)]
-data = [
-    go.Bar(
-        x=df3['date'],  # assign x as the dataframe column 'x'
-        y=df3['neg'],
-        name='neg'
-    ),
-    go.Bar(
-        x=df3['date'],
-        y=df3['pos'],
-        name='pos'
-    ),
-    go.Bar(
-        x=df3['date'],
-        y=df3['neu'],
-        name='neu'
+    layout = go.Layout(
+        barmode='stack',
+        title='Stacked Bar for reddit sentiment'
     )
-]
 
-layout = go.Layout(
-    barmode='stack',
-    title='Stacked Bar for reddit sentiment'
-)
+    fig = go.Figure(data=data, layout=layout)
+    py.iplot(fig, filename=file_name + ' for hurricane irma')
 
-fig = go.Figure(data=data, layout=layout)
-py.iplot(fig, filename=file_name + ' for hurricane irma')
+    # Irene
+    df4 = df[df["date"].isin(dateList4)]
+    data = [
+        go.Bar(
+            x=df4['date'],  # assign x as the dataframe column 'x'
+            y=df4['neg'],
+            name='neg'
+        ),
+        go.Bar(
+            x=df4['date'],
+            y=df4['pos'],
+            name='pos'
+        ),
+        go.Bar(
+            x=df4['date'],
+            y=df4['neu'],
+            name='neu'
+        )
+    ]
 
-# Irene
-df4 = df[df["date"].isin(dateList4)]
-data = [
-    go.Bar(
-        x=df4['date'],  # assign x as the dataframe column 'x'
-        y=df4['neg'],
-        name='neg'
-    ),
-    go.Bar(
-        x=df4['date'],
-        y=df4['pos'],
-        name='pos'
-    ),
-    go.Bar(
-        x=df4['date'],
-        y=df4['neu'],
-        name='neu'
+    layout = go.Layout(
+        barmode='stack',
+        title='Stacked Bar for reddit sentiment'
     )
-]
 
-layout = go.Layout(
-    barmode='stack',
-    title='Stacked Bar for reddit sentiment'
-)
-
-fig = go.Figure(data=data, layout=layout)
-py.iplot(fig, filename=file_name + ' for hurricane irene')
+    fig = go.Figure(data=data, layout=layout)
+    py.iplot(fig, filename=file_name + ' for hurricane irene')
 
 if __name__ == "__main__":
     # reddit
