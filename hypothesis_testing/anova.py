@@ -60,7 +60,7 @@ def anova(data):
     # do levene test , the result is ﻿LeveneResult(statistic=3.003859284143726, pvalue=0.09589834933076798)
     # p is bigger than 0.05
     print(levene(data1, data2))
-    # result is ﻿0.8119993264991475 0.3764839982630388, so the hypothesis is correct.
+    # result is ﻿   0.8119993264991475 0.3764839982630388, so the hypothesis is correct.
     print(f, p)
 
 
