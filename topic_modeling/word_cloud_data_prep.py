@@ -14,17 +14,17 @@ def count_total_for_each_topic(dataFrame: pandas.DataFrame) -> dict:
 
 
 def main():
-    with open("./topic_counts_for_reddit.json", 'w') as write_file:
+    with open("./topic_counts_for_reddit.json", 'w', encoding=utf8) as write_file:
         df = pandas.read_csv("./is_topic_reddit.csv")
         article_count = count_total_for_each_topic(df)
         write_file.write(str(article_count))
 
-    with open("./topic_counts_for_nytimes.json", 'w') as write_file:
+    with open("./topic_counts_for_nytimes.json", 'w', encoding=utf8) as write_file:
         df = pandas.read_csv("./is_topic_nytimes.csv")
         article_count = count_total_for_each_topic(df)
         write_file.write(str(article_count))
 
-    with open("./topic_counts_for_guardian.json", 'w') as write_file:
+    with open("./topic_counts_for_guardian.json", 'w', encoding=utf8) as write_file:
         df = pandas.read_csv("./is_topic_guardian.csv")
         article_count = count_total_for_each_topic(df)
         write_file.write(str(article_count))

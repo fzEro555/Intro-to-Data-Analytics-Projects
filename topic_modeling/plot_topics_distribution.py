@@ -40,6 +40,7 @@ def plot_topic_distribution(period, data, source):
     # plot
     traces = []
     n_topics = len(value[0])
+    plot_title = "Distribution of topics over time for " + source
     for i in range(n_topics):
         trace = {
             "x": date,
@@ -49,7 +50,7 @@ def plot_topic_distribution(period, data, source):
         }
         traces.append(trace)
     layout = {
-        "title": "Topic distribution during time period \n{} -- {} from {}".format(period[0], period[1], source),
+        "title": plot_title,
         "barmode": "stack",
         "dragmode": "zoom",
         "hovermode": "x",
@@ -58,8 +59,7 @@ def plot_topic_distribution(period, data, source):
     }
     fig = Figure(data=traces, layout=layout)
     plotly.offline.plot(fig,
-                        filename=
-                        "Topic distribution during time period <br> {} -- {} from {}".format(period[0], period[1], source),
+                        filename=plot_title,
                         auto_open=True)
     return
 
