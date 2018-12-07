@@ -3,9 +3,9 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 
 
-# https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extraction_with_nmf_lda.html#sphx-
-# glr-auto-examples-applications-plot-topics-extraction-with-nmf-lda-py
 def get_top_words(model, feature_names, n_top_words) -> list:
+    # https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extraction_with_nmf_lda.html#sphx-
+    # glr-auto-examples-applications-plot-topics-extraction-with-nmf-lda-py
     messages = []
     for topic_idx, topic in enumerate(model.components_):
         message = "Topic #%d: " % topic_idx
