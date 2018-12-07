@@ -97,7 +97,7 @@ def barchart_amount():
         )
     ]
 
-    py.iplot(data, yTitle='amount for irene', filename='amount for hurricane irene')
+    plotly.offline.plot(data, yTitle='amount for irene', filename='amount for hurricane irene', auto_run=True)
 
 
 if __name__ == "__main__":
