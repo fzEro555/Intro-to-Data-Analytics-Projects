@@ -27,8 +27,10 @@ def plot_piechart():
 			graph_title = "New York Times"
 		elif source == "guardian":
 			graph_title = "Guardian"
+		colors = ['#1F77B4', '#FF7F0E', '#18A647']
 		trace = go.Pie(labels=labels,
 					   values=values,
+					   marker=dict(colors=colors),
 					   hoverinfo='label+percent', textinfo='percent',
 					   title=graph_title)
 		py.iplot([trace], filename="{}_sent_piechart".format(source))
