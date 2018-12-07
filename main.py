@@ -17,12 +17,12 @@ from Visualization.hypo2_plot import plot_hypo2
 
 def main():
     # topic modeling and visualizations
-    generate_topics()
+    # generate_topics()
     count_topics()
     plot_topics_distribution()
 
     # sentiment analysis and visualization
-    sentiment_analysis()
+    # sentiment_analysis()
     sentiment_analysis_by_date()
     sent_overlaybar()
     sent_piechart()
