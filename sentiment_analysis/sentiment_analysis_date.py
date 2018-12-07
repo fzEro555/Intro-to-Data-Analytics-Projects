@@ -177,7 +177,11 @@ def nytimes_sentiment_date():
         writer.writerows(score_dict)
 
 
-if __name__ == "__main__":
+def main():
     reddit_sentiment_date()
     guardian_sentiment_date()
     nytimes_sentiment_date()
+
+
+if __name__ == "__main__":
+    main()

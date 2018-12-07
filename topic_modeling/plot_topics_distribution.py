@@ -52,12 +52,14 @@ def plot_topic_distribution(period, data, source):
         "title": "Topic distribution during time period \n{} -- {} from {}".format(period[0], period[1], source),
         "barmode": "stack",
         "dragmode": "zoom",
-        "hovermode": "x"
+        "hovermode": "x",
+        "xaxis": dict(title='Time'),
+        "yaxis": dict(title='Distribution of topics')
     }
     fig = Figure(data=traces, layout=layout)
     plotly.offline.plot(fig,
                         filename=
-                        "Topic distribution during time period {} -- {} from {}".format(period[0], period[1], source),
+                        "Topic distribution during time period <br> {} -- {} from {}".format(period[0], period[1], source),
                         auto_open=True)
     return
 
@@ -73,9 +75,9 @@ def main():
 
     # plot topic distribution
     period_harvey = ("2017-08-02", "2017-10-09")
-    plot_topic_distribution(period_harvey, reddit, "reddit")
-    plot_topic_distribution(period_harvey, nytimes, "nytimes")
-    plot_topic_distribution(period_harvey, guardian, "guardian")
+    plot_topic_distribution(period_harvey, reddit, "Reddit")
+    plot_topic_distribution(period_harvey, nytimes, "New York Times")
+    plot_topic_distribution(period_harvey, guardian, "The Guardian")
     return
 
 

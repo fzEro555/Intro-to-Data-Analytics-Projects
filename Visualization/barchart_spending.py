@@ -1,5 +1,4 @@
-﻿﻿
-import plotly
+﻿import plotly
 
 plotly.tools.set_credentials_file(username='fzEro5', api_key='JW2fEOORvG6eByCT2TfG')
 import plotly.plotly as py

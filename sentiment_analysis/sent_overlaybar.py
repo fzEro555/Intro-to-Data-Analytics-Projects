@@ -85,7 +85,7 @@ def stack_barchart_sentiment(data_frame: pd.core.frame.DataFrame, file_name, sou
     plotly.offline.plot(fig, filename=file_name + ' for hurricane maria', auto_open=True)
 
 
-if __name__ == "__main__":
+def main():
     # reddit
     df1 = pd.read_csv("reddit_sentiment_date.csv")
     stack_barchart_sentiment(df1, "reddit_sentiment_date.csv", "Reddit")
@@ -97,3 +97,7 @@ if __name__ == "__main__":
     # nytimes
     df3 = pd.read_csv("nytimes_sentiment_date.csv")
     stack_barchart_sentiment(df3, "nytimes_sentiment_date.csv", "NYTimes")
+
+
+if __name__ == "__main__":
+    main()
