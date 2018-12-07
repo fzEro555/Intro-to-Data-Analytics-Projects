@@ -68,7 +68,7 @@ def barchart_amount():
             title='Date'
             ),
             yaxis=dict(
-            title='amount for maria')
+            title='Amount for maria')
             )
     fig = go.Figure(data=data, layout=layout)
     plotly.offline.plot(fig, filename='amount for hurricane maria', auto_open=True)
@@ -87,7 +87,7 @@ def barchart_amount():
             title='Date'
             ),
             yaxis=dict(
-            title='amount for harvey')
+            title='Amount for harvey')
             )
     fig = go.Figure(data=data, layout=layout)
     plotly.offline.plot(fig, filename='amount for hurricane harvey', auto_open=True)
@@ -106,7 +106,7 @@ def barchart_amount():
             title='Date'
             ),
             yaxis=dict(
-            title='amount for irma')
+            title='Amount for irma')
             )
     fig = go.Figure(data=data, layout=layout)
     plotly.offline.plot(fig, filename='amount for hurricane irma', auto_open=True)
@@ -125,7 +125,7 @@ def barchart_amount():
             title='Date'
             ),
             yaxis=dict(
-            title='amount for irene')
+            title='Amount for irene')
             )
     fig = go.Figure(data=data, layout=layout)
     plotly.offline.plot(fig, filename='amount for hurricane irene', auto_open=True)
