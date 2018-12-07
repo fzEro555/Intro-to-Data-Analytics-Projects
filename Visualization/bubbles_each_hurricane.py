@@ -54,7 +54,7 @@ dateList4 = ['2011-08-07', '2011-08-08', '2011-08-09', '2011-08-10', '2011-08-11
 
 def bubblechart():
     # cf.set_config_file(offline=True, world_readable=True, theme='pearl')
-    df = pd.read_csv("../basic_analysis/combined_data.csv", sep=',')
+    df = pd.read_csv("./basic_analysis/combined_data.csv", sep=',')
 
     # Maria
     df1 = df[df["date"].isin(dateList1)]
