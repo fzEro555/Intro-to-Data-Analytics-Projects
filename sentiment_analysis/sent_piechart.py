@@ -33,7 +33,7 @@ def plot_piechart():
 					   marker=dict(colors=colors),
 					   hoverinfo='label+percent', textinfo='percent',
 					   title=graph_title)
-		py.iplot([trace], filename="{}_sent_piechart".format(source))
+		plotly.offline.plot([trace], filename="{}_sent_piechart".format(source), auto_open=True)
 
 
 def main():
