@@ -64,7 +64,7 @@ def barchart_amount():
         )
     ]
 
-    plotly.offline.plot(data, yTitle='amount for maria', filename='amount for hurricane maria', auto_run=True)
+    plotly.offline.plot(data, yTitle='amount for maria', filename='amount for hurricane maria', auto_open=True)
 
     # Harvey
     df2 = df[df["date"].isin(dateList2)]
@@ -75,7 +75,7 @@ def barchart_amount():
         )
     ]
 
-    plotly.offline.plot(data, yTitle='amount for harvey', filename='amount for hurricane harvey', auto_run=True)
+    plotly.offline.plot(data, yTitle='amount for harvey', filename='amount for hurricane harvey', auto_open=True)
 
     # Irma
     df3 = df[df["date"].isin(dateList3)]
@@ -86,7 +86,7 @@ def barchart_amount():
         )
     ]
 
-    plotly.offline.plot(data, yTitle='amount for irma', filename='amount for hurricane irma', auto_run=True)
+    plotly.offline.plot(data, yTitle='amount for irma', filename='amount for hurricane irma', auto_open=True)
 
     # Irene
     df4 = df[df["date"].isin(dateList4)]
@@ -97,7 +97,7 @@ def barchart_amount():
         )
     ]
 
-    plotly.offline.plot(data, yTitle='amount for irene', filename='amount for hurricane irene', auto_run=True)
+    plotly.offline.plot(data, yTitle='amount for irene', filename='amount for hurricane irene', auto_open=True)
 
 
 if __name__ == "__main__":
