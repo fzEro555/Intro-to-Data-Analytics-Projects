@@ -9,7 +9,7 @@ def count_topics(directory: str, topics: list, time_splitter: str):
         re_t = [re.compile(w, re.IGNORECASE) for w in t]
         re_topics.append(re_t)
     # read in nytimes
-    with open(directory, 'r') as read_file:
+    with open(directory, 'r', encoding="utf8") as read_file:
         articles = list(csv.reader(read_file, delimiter=','))[1:]
     # iterate through all articles, determine if it is of each topic
     # [[date, is topic 1, is 2, 3 ,4, 5, ...]]
