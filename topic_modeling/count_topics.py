@@ -50,7 +50,7 @@ def count_topics(directory: str, topics: list, time_splitter: str):
 
 
 def main():
-    directory_reddit_data = "../basic_analysis/reddit_data.csv"
+    directory_reddit_data = "./basic_analysis/reddit_data.csv"
     # list of topics for reddit with words
     reddit_topics = [#["climate", "change"],  # climate change
                      ["flood", "food", "climate", "power", "weather", "water", "money"],  # affect
@@ -61,12 +61,12 @@ def main():
     topics_on_day = count_topics(directory_reddit_data, reddit_topics, ' ')
     # topics_on_day.insert(0, ["date", "climate change", "affect", "hope", "hurricane", "death"])
     topics_on_day.insert(0, ["date", "affect", "rescue", "hurricane", "death"])
-    with open("../topic_modeling/is_topic_reddit.csv", 'w') as save_file:
+    with open("./topic_modeling/is_topic_reddit.csv", 'w') as save_file:
         write = csv.writer(save_file, delimiter=',')
         write.writerows(topics_on_day)
 
 
-    directory_nytimes_data = "../basic_analysis/nytimes_data.csv"
+    directory_nytimes_data = "./basic_analysis/nytimes_data.csv"
     # list of topics for nytimes with words
     nytimes_topics = [#["climate", "change"],  # climate change
                       ["storm", "tropical", "power", "flood", "insurance", "warming", "food", "climate"],  # affect
@@ -77,12 +77,12 @@ def main():
     topics_on_day = count_topics(directory_nytimes_data, nytimes_topics, 'T')
     # topics_on_day.insert(0, ["date", "climate change", "affect", "hurricane", "relief", "damage"])
     topics_on_day.insert(0, ["date", "affect", "hurricane", "relief", "damage"])
-    with open("../topic_modeling/is_topic_nytimes.csv", 'w') as save_file:
+    with open("./topic_modeling/is_topic_nytimes.csv", 'w') as save_file:
         write = csv.writer(save_file, delimiter=',')
         write.writerows(topics_on_day)
 
 
-    directory_guardian_data = "../basic_analysis/guardian_data.csv"
+    directory_guardian_data = "./basic_analysis/guardian_data.csv"
     # list of topics for guardian
     guardian_topics = [#["climate", "change"],  # climate change
                        ["rain", "flood", "climate", "storm", "winds", "weather"],  # affect
@@ -93,7 +93,7 @@ def main():
     topics_on_day = count_topics(directory_guardian_data, guardian_topics, 'T')
     # topics_on_day.insert(0, ["date", "climate change", "affect", "hurricane", "royals", "soccer"])
     topics_on_day.insert(0, ["date", "affect", "hurricane", "royals", "soccer"])
-    with open("../topic_modeling/is_topic_guardian.csv", 'w') as save_file:
+    with open("./topic_modeling/is_topic_guardian.csv", 'w') as save_file:
         write = csv.writer(save_file, delimiter=',')
         write.writerows(topics_on_day)
     return

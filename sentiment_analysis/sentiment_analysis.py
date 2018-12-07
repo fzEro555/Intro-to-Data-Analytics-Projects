@@ -45,9 +45,9 @@ def get_sent_score(data_frame: pd.core.frame.DataFrame, col_list: list) -> dict:
 def main():
 	all_sent_scores = dict()
 	# upload reddit data
-	reddit_csv = "../reddit/reddit.csv"
-	guardian_csv = "../basic_analysis/guardian_data.csv"
-	nytimes_csv = "../basic_analysis/nytimes_data.csv"
+	reddit_csv = "./reddit/reddit.csv"
+	guardian_csv = "./basic_analysis/guardian_data.csv"
+	nytimes_csv = "./basic_analysis/nytimes_data.csv"
 	reddit_df = upload_data(reddit_csv)
 	nytimes_df = upload_data(nytimes_csv)
 	guardian_df = upload_data(guardian_csv)

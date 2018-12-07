@@ -66,9 +66,9 @@ def plot_topic_distribution(period, data, source):
 
 def main():
     # read in data with pandas
-    reddit = pandas.read_csv('../topic_modeling/is_topic_reddit.csv')
-    nytimes = pandas.read_csv('../topic_modeling/is_topic_nytimes.csv')
-    guardian = pandas.read_csv('../topic_modeling/is_topic_guardian.csv')
+    reddit = pandas.read_csv('./topic_modeling/is_topic_reddit.csv')
+    nytimes = pandas.read_csv('./topic_modeling/is_topic_nytimes.csv')
+    guardian = pandas.read_csv('./topic_modeling/is_topic_guardian.csv')
 
     # set up plotly credentials
     plotly.tools.set_credentials_file(username='peuleupeu', api_key='ZWZ27kkaZcUtiHOpEZ3I')

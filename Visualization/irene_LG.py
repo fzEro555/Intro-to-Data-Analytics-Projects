@@ -3,7 +3,7 @@ import plotly as py
 import plotly.graph_objs as go
 
 def main():
-    df = pd.read_csv('combined_data.csv')
+    df = pd.read_csv('./basic_analysis/combined_data.csv')
     
     #creating the traces
     trace_reddit = go.Scatter(x = df['date'],
