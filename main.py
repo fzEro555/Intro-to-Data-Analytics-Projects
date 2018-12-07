@@ -41,6 +41,7 @@ def main():
     bubblechart_for_each_hurricane()
     # Hypothesis 2
     plot_hypo2()
+
     return
 
 
