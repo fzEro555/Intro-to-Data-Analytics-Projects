@@ -1,4 +1,4 @@
-
+import
 
 def count_reddit_data():
     all_counts = []
@@ -7,4 +7,3 @@ def count_reddit_data():
 
 if __name__ is "__main__":
     count_reddit_data()
-    # input("any")
