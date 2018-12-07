@@ -92,7 +92,7 @@ def reddit_sentiment_date():
     header = ['hurricane name', 'date', 'neg', 'pos', 'neu']
     score_dict.insert(0, header)
     # write sentiment data to file
-    with open("reddit_sentiment_date.csv", 'w') as reddit_file:
+    with open("./sentiment_analysis/reddit_sentiment_date.csv", 'w') as reddit_file:
         writer = csv.writer(reddit_file, delimiter=',')
         writer.writerows(score_dict)
 
@@ -132,7 +132,7 @@ def guardian_sentiment_date():
     header = ['hurricane name', 'date', 'neg', 'pos', 'neu']
     score_dict.insert(0, header)
     # write sentiment data to file
-    with open("guardian_sentiment_date.csv", 'w') as guardian_file:
+    with open("./sentiment_analysis/guardian_sentiment_date.csv", 'w') as guardian_file:
         writer = csv.writer(guardian_file, delimiter=',')
         writer.writerows(score_dict)
 
@@ -172,7 +172,7 @@ def nytimes_sentiment_date():
     header = ['hurricane name', 'date', 'neg', 'pos', 'neu']
     score_dict.insert(0, header)
     # write sentiment data to file
-    with open("nytimes_sentiment_date.csv", 'w') as nytimes_file:
+    with open("./sentiment_analysis/nytimes_sentiment_date.csv", 'w') as nytimes_file:
         writer = csv.writer(nytimes_file, delimiter=',')
         writer.writerows(score_dict)
 

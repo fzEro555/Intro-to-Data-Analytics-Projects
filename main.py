@@ -22,7 +22,7 @@ def main():
     plot_topics_distribution()
 
     # sentiment analysis and visualization
-    # sentiment_analysis()
+    sentiment_analysis()
     sentiment_analysis_by_date()
     sent_overlaybar()
     sent_piechart()

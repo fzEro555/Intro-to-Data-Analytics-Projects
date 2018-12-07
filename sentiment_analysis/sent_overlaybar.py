@@ -87,16 +87,16 @@ def stack_barchart_sentiment(data_frame: pd.core.frame.DataFrame, file_name, sou
 
 def main():
     # reddit
-    df1 = pd.read_csv("reddit_sentiment_date.csv")
-    stack_barchart_sentiment(df1, "reddit_sentiment_date.csv", "Reddit")
+    df1 = pd.read_csv("./sentiment_analysis/reddit_sentiment_date.csv")
+    stack_barchart_sentiment(df1, "./sentiment_analysis/reddit_sentiment_date.csv", "Reddit")
 
     # guardian
-    df2 = pd.read_csv("guardian_sentiment_date.csv")
-    stack_barchart_sentiment(df2, "guardian_sentiment_date.csv", "Guardian")
+    df2 = pd.read_csv("./sentiment_analysis/guardian_sentiment_date.csv")
+    stack_barchart_sentiment(df2, "./sentiment_analysis/guardian_sentiment_date.csv", "Guardian")
 
     # nytimes
-    df3 = pd.read_csv("nytimes_sentiment_date.csv")
-    stack_barchart_sentiment(df3, "nytimes_sentiment_date.csv", "NYTimes")
+    df3 = pd.read_csv("./sentiment_analysis/nytimes_sentiment_date.csv")
+    stack_barchart_sentiment(df3, "./sentiment_analysis/nytimes_sentiment_date.csv", "NYTimes")
 
 
 if __name__ == "__main__":

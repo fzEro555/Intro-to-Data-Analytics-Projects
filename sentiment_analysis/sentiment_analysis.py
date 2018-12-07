@@ -58,7 +58,7 @@ def main():
 	all_sent_scores["nytimes"] = get_sent_score(nytimes_df, ["article summary"])
 	all_sent_scores["guardian"] = get_sent_score(guardian_df, ["article summary"])
 
-	with open("all_sent.json", "w") as json_file:
+	with open("./sentiment_analysis/all_sent.json", "w") as json_file:
 		json.dump(all_sent_scores, json_file)
 
 
