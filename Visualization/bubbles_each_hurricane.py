@@ -5,7 +5,6 @@ import plotly.plotly as py
 import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
-import cufflinks as cf
 
 # Maria
 dateList1 = ['2017-09-02', '2017-09-03', '2017-09-04', '2017-09-05', '2017-09-06',
