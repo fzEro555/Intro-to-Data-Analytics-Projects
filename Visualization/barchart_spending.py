@@ -1,4 +1,4 @@
-﻿
+﻿﻿
 import plotly
 
 plotly.tools.set_credentials_file(username='fzEro5', api_key='JW2fEOORvG6eByCT2TfG')
@@ -54,7 +54,7 @@ dateList4 = ['2011-08-07', '2011-08-08', '2011-08-09', '2011-08-10', '2011-08-11
 
 def barchart_amount():
     # Maria
-    df = pd.read_csv("FPDS.csv")
+    df = pd.read_csv("../basic_analysis/FPDS.csv")
 
     df1 = df[df["date"].isin(dateList1)]
     data = [
@@ -63,8 +63,15 @@ def barchart_amount():
             y=df1['amount for maria'],
         )
     ]
-
-    plotly.offline.plot(data, yTitle='amount for maria', filename='amount for hurricane maria', auto_open=True)
+    layout = go.Layout(
+            xaxis=dict(
+            title='Date'
+            ),
+            yaxis=dict(
+            title='Amount for maria')
+            )
+    fig = go.Figure(data=data, layout=layout)
+    plotly.offline.plot(fig, filename='amount for hurricane maria', auto_open=True)
 
     # Harvey
     df2 = df[df["date"].isin(dateList2)]
@@ -75,7 +82,15 @@ def barchart_amount():
         )
     ]
 
-    plotly.offline.plot(data, yTitle='amount for harvey', filename='amount for hurricane harvey', auto_open=True)
+    layout = go.Layout(
+            xaxis=dict(
+            title='Date'
+            ),
+            yaxis=dict(
+            title='Amount for harvey')
+            )
+    fig = go.Figure(data=data, layout=layout)
+    plotly.offline.plot(fig, filename='amount for hurricane harvey', auto_open=True)
 
     # Irma
     df3 = df[df["date"].isin(dateList3)]
@@ -86,7 +101,15 @@ def barchart_amount():
         )
     ]
 
-    plotly.offline.plot(data, yTitle='amount for irma', filename='amount for hurricane irma', auto_open=True)
+    layout = go.Layout(
+            xaxis=dict(
+            title='Date'
+            ),
+            yaxis=dict(
+            title='Amount for irma')
+            )
+    fig = go.Figure(data=data, layout=layout)
+    plotly.offline.plot(fig, filename='amount for hurricane irma', auto_open=True)
 
     # Irene
     df4 = df[df["date"].isin(dateList4)]
@@ -97,7 +120,15 @@ def barchart_amount():
         )
     ]
 
-    plotly.offline.plot(data, yTitle='amount for irene', filename='amount for hurricane irene', auto_open=True)
+    layout = go.Layout(
+            xaxis=dict(
+            title='Date'
+            ),
+            yaxis=dict(
+            title='Amount for irene')
+            )
+    fig = go.Figure(data=data, layout=layout)
+    plotly.offline.plot(fig, filename='amount for hurricane irene', auto_open=True)
 
 
 if __name__ == "__main__":

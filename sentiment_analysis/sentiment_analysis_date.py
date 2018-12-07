@@ -56,7 +56,7 @@ hurricane = ['hurricane maria', 'hurricane harvey', 'hurricane irma', 'hurricane
 
 def reddit_sentiment_date():
     datelist = []
-    df = pd.read_csv("reddit.csv")
+    df = pd.read_csv("../reddit/reddit.csv")
     for time in df["time"]:
         time = time[0:10]
         datelist.append(time)
@@ -99,7 +99,7 @@ def reddit_sentiment_date():
 
 def guardian_sentiment_date():
     datelist = []
-    df = pd.read_csv("guardian_data.csv")
+    df = pd.read_csv("../basic_analysis/guardian_data.csv")
     for time in df["article date"]:
         time = time[0:10]
         datelist.append(time)
@@ -139,7 +139,7 @@ def guardian_sentiment_date():
 
 def nytimes_sentiment_date():
     datelist = []
-    df = pd.read_csv("nytimes_data.csv")
+    df = pd.read_csv("../basic_analysis/nytimes_data.csv")
     for time in df["article date"]:
         time = time[0:10]
         datelist.append(time)
