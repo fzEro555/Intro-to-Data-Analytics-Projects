@@ -33,7 +33,7 @@ def plot_hypo2():
               xaxis = dict(title = 'Year'),
               yaxis = dict(title = 'Number of comments'))
     fig = go.Figure(data=data, layout=layout)
-    py.iplot(fig, filename='hypothesis2')
+    plotly.offline.plot(fig, filename='hypothesis2', auto_run=True)
 
 if __name__ == "__main__":
     plot_hypo2()

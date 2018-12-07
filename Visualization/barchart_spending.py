@@ -64,7 +64,7 @@ def barchart_amount():
         )
     ]
 
-    py.iplot(data, yTitle='amount for maria', filename='amount for hurricane maria')
+    plotly.offline.plot(data, yTitle='amount for maria', filename='amount for hurricane maria', auto_run=True)
 
     # Harvey
     df2 = df[df["date"].isin(dateList2)]
@@ -75,7 +75,7 @@ def barchart_amount():
         )
     ]
 
-    py.iplot(data, yTitle='amount for harvey', filename='amount for hurricane harvey')
+    plotly.offline.plot(data, yTitle='amount for harvey', filename='amount for hurricane harvey', auto_run=True)
 
     # Irma
     df3 = df[df["date"].isin(dateList3)]
@@ -86,7 +86,7 @@ def barchart_amount():
         )
     ]
 
-    py.iplot(data, yTitle='amount for irma', filename='amount for hurricane irma')
+    plotly.offline.plot(data, yTitle='amount for irma', filename='amount for hurricane irma', auto_run=True)
 
     # Irene
     df4 = df[df["date"].isin(dateList4)]

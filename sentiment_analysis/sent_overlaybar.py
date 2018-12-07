@@ -82,7 +82,7 @@ def stack_barchart_sentiment(data_frame: pd.core.frame.DataFrame, file_name, sou
     )
 
     fig = go.Figure(data=data, layout=layout)
-    py.iplot(fig, filename=file_name + ' for hurricane maria')
+    plotly.offline.plot(fig, filename=file_name + ' for hurricane maria', auto_run=True)
 
 
 if __name__ == "__main__":
