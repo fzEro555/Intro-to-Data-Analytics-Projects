@@ -8,6 +8,7 @@ import json
 
 
 def plot_piechart():
+	# create pie chart for all sources
 	sent_data = dict()
 	with open("all_sent.json") as json_file:
 		sent_data = json.load(json_file)

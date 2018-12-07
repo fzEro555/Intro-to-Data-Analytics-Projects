@@ -15,6 +15,7 @@ def upload_data(csv_file: str) -> pd.core.frame.DataFrame:
 
 
 def get_sent_score(data_frame: pd.core.frame.DataFrame, col_list: list) -> dict:
+	# calculates total sentiment score for every row of dataframe
 	sent_analyzer = SentimentIntensityAnalyzer()
 	score_list = []
 	neg_total = 0
