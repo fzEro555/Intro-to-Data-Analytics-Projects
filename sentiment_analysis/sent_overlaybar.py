@@ -72,7 +72,13 @@ def stack_barchart_sentiment(data_frame: pd.core.frame.DataFrame, file_name, sou
 
     layout = go.Layout(
         barmode='overlay',
-        title=plot_title
+        title=plot_title,
+        xaxis=dict(
+            title='Date'
+        ),
+        yaxis=dict(
+            title='Distribution of Sentiment')
+
     )
 
     fig = go.Figure(data=data, layout=layout)
