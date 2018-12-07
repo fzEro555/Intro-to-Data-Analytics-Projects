@@ -11,25 +11,29 @@ def plot_hypo2():
             go.Scatter(
                 x=df['date'], # assign x as the dataframe column 'x'
                 y=df['number of summaries for irma in reddit'],
-                name='number of summaries for irma in reddit'
+                name='Irma'
             ),
             go.Scatter(
                 x=df['date'], # assign x as the dataframe column 'x'
                 y=df['number of summaries for maria in reddit'],
-                name='number of summaries for maria in reddit'
+                name='Maria'
             ),
             go.Scatter(
                 x=df['date'], # assign x as the dataframe column 'x'
                 y=df['number of summaries for harvey in reddit'],
-                name='number of summaries for harvey in reddit'
+                name='Harvey'
             ),
             go.Scatter(
                 x=df['date'], # assign x as the dataframe column 'x'
                 y=df['number of summaries for irene in reddit'],
-                name='number of summaries for irene in reddit'
+                name='Irene'
             )
             ]
-    url = py.plot(data, filename='hypothesis2')
+    layout = go.Layout(title='Number of comments which mention a hurricane in Reddit',
+              xaxis = dict(title = 'Year'),
+              yaxis = dict(title = 'Number of comments'))
+    fig = go.Figure(data=data, layout=layout)
+    py.iplot(fig, filename='hypothesis2')
 
 if __name__ == "__main__":
     plot_hypo2()
