@@ -6,24 +6,30 @@ def main():
     df = pd.read_csv('combined_data.csv')
     
     #creating the traces
-    trace_reddit = go.Scatter(x = df['date'],
+    trace_irene = go.Scatter(x = df['date'],
                           y = df['number of titles for irene in reddit'],
-                          name = "Reddit mentions",
+                          name = "Irene",
                           line = dict(color = '#21B6F4'))
 
-    trace_nytimes = go.Scatter(x = df['date'],
-                          y = df['number of titles for irene in nytimes'],
-                          name = "NYTimes mentions",
-                          line = dict(color = '#43D628'))
+    trace_irma = go.Scatter(x = df['date'],
+                          y = df['number of titles for irma in reddit'],
+                          name = "Irma",
+                          line = dict(color = '#842FCE'))
                                       
-    trace_guardian = go.Scatter(x = df['date'],
-                          y = df['number of titles for irene in guardian'],
-                          name = "Guardian mentions",
-                          line = dict(color = '#D63828'))
-    data = [trace_nytimes, trace_reddit, trace_guardian]                                      
+    trace_harvey = go.Scatter(x = df['date'],
+                          y = df['number of titles for harvey in reddit'],
+                          name = "Harvey",
+                          line = dict(color = '#2FCE55'))
+    
+    trace_maria = go.Scatter(x = df['date'],
+                          y = df['number of titles for maria in reddit'],
+                          name = "Maria",
+                          line = dict(color = '#CE422F'))
+                                      
+    data = [trace_harvey,trace_irene,trace_irma,trace_maria]                                      
     #creating the layout
     layout = dict(
-            title = "Hurricane Irene",
+            title = "Comparision of Mentions in Reddit",
             xaxis = dict(
                     title='Days when the Hurricane hit',
                     titlefont=dict(
@@ -31,7 +37,8 @@ def main():
                             size=18,
                             color='#7f7f7f'
                             ),
-                            range = ['2011-08-07','2011-09-11']),
+                            range = ['2017-08-03','2017-10-16']
+                            ),
             yaxis=dict(
                     title='Number of mentions',
                     titlefont=dict(
@@ -44,7 +51,7 @@ def main():
     #creating the plot. Currently creating offline cuz no internet, but should 
     #create online to embed. Also change the library name if creating online.
     fig = dict(data=data, layout = layout)
-    py.offline.plot(fig,filename = "irene_LG", auto_open=True)
+    py.offline.plot(fig,filename = "reddit_LG", auto_open=True)
 
 if __name__ == "__main__":
     main()

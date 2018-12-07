@@ -23,9 +23,24 @@ def main():
     data = [trace_nytimes, trace_reddit, trace_guardian]                                      
     #creating the layout
     layout = dict(
-    title = "Hurricane Maria",
-    xaxis = dict(
-        range = ['2017-09-02','2017-10-16']))
+            title = "Hurricane Maria",
+            xaxis = dict(
+                    title='Days when the Hurricane hit',
+                    titlefont=dict(
+                            family='Courier New, monospace',
+                            size=18,
+                            color='#7f7f7f'
+                            ),
+                            range = ['2017-09-02','2017-10-16']),
+            yaxis=dict(
+                    title='Number of mentions',
+                    titlefont=dict(
+                            family='Courier New, monospace',
+                            size=18,
+                            color='#7f7f7f'
+        )
+            )
+                    )
     
     #creating the plot. Currently creating offline cuz no internet, but should 
     #create online to embed. Also change the library name if creating online.
