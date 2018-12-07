@@ -54,7 +54,7 @@ dateList4 = ['2011-08-07', '2011-08-08', '2011-08-09', '2011-08-10', '2011-08-11
 
 def barchart_amount():
     # Maria
-    df = pd.read_csv("FPDS.csv")
+    df = pd.read_csv("../basic_analysis/FPDS.csv")
 
     df1 = df[df["date"].isin(dateList1)]
     data = [

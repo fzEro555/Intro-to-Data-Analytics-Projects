@@ -5,7 +5,7 @@ import plotly.graph_objs as go
 import pandas as pd
 
 def plot_hypo2():
-    df = pd.read_csv("combined_data.csv")
+    df = pd.read_csv("../basic_analysis/combined_data.csv")
 
     data = [
             go.Scatter(
