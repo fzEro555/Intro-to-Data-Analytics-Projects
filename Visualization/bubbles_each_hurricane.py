@@ -1,12 +1,4 @@
-﻿﻿  # !/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Dec  6 22:28:11 2018
-
-@author: fz
-"""
-
-import plotly
+﻿import plotly
 
 plotly.tools.set_credentials_file(username='fzEro5', api_key='JW2fEOORvG6eByCT2TfG')
 import plotly.plotly as py
