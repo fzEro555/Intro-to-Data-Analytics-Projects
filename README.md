@@ -6,4 +6,4 @@ It's a group project.
 
 The website is http://annarempe.georgetown.domains/
 
-The con
+The contributor Newbeeprogrammer and fzEro555 are my two accounts
